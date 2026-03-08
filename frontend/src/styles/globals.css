@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --td-bg: #1a1b26;
+    --td-bg-dark: #16161e;
+    --td-surface: #1f2335;
+    --td-surface-hover: #292e42;
+    --td-border: #292e42;
+    --td-text: #c0caf5;
+    --td-text-dim: #565f89;
+    --td-cyan: #7dcfff;
+    --td-blue: #7aa2f7;
+    --td-green: #9ece6a;
+    --td-orange: #ff9e64;
+    --td-red: #f7768e;
+    --td-purple: #bb9af7;
+    --td-yellow: #e0af68;
+}
+
+/* ===== Base ===== */
+body {
+    background-color: var(--td-bg);
+    color: var(--td-text);
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: rgba(122, 162, 247, 0.3);
+    color: #c0caf5;
+}
+
+/* ===== Tokyo Dark Glass Cards ===== */
+@layer components {
+    .glass {
+        background: rgba(31, 35, 53, 0.85);
+        border: 1px solid rgba(41, 46, 66, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    .glass-panel {
+        @apply glass rounded-xl p-6;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-panel:hover {
+        border-color: rgba(125, 207, 255, 0.15);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(125, 207, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transform: translateY(-1px);
+    }
+
+    .glass-card {
+        @apply glass rounded-lg p-4;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+        background: rgba(41, 46, 66, 0.9);
+        border-color: rgba(125, 207, 255, 0.12);
+        transform: translateY(-1px);
+    }
+
+    .glass-subtle {
+        background: rgba(22, 22, 30, 0.6);
+        border: 1px solid rgba(41, 46, 66, 0.5);
+    }
+
+    /* ===== Neon Text Glows ===== */
+    .text-neon-cyan {
+        color: var(--td-cyan);
+        text-shadow: 0 0 10px rgba(125, 207, 255, 0.5), 0 0 30px rgba(125, 207, 255, 0.15);
+    }
+
+    .text-neon-red {
+        color: var(--td-red);
+        text-shadow: 0 0 10px rgba(247, 118, 142, 0.5), 0 0 30px rgba(247, 118, 142, 0.15);
+    }
+
+    .text-neon-blue {
+        color: var(--td-blue);
+        text-shadow: 0 0 10px rgba(122, 162, 247, 0.4), 0 0 25px rgba(122, 162, 247, 0.1);
+    }
+
+    .text-neon-green {
+        color: var(--td-green);
+        text-shadow: 0 0 10px rgba(158, 206, 106, 0.4), 0 0 25px rgba(158, 206, 106, 0.1);
+    }
+
+    /* ===== Border Glow Accents ===== */
+    .border-neon-cyan {
+        box-shadow: 0 0 8px rgba(125, 207, 255, 0.15), inset 0 0 8px rgba(125, 207, 255, 0.05);
+    }
+
+    .border-neon-red {
+        box-shadow: 0 0 8px rgba(247, 118, 142, 0.15), inset 0 0 8px rgba(247, 118, 142, 0.05);
+    }
+
+    .border-glow-cyan {
+        box-shadow: 0 0 12px rgba(125, 207, 255, 0.1), 0 0 4px rgba(125, 207, 255, 0.05);
+    }
+
+    .border-glow-red {
+        box-shadow: 0 0 12px rgba(247, 118, 142, 0.1), 0 0 4px rgba(247, 118, 142, 0.05);
+    }
+
+    /* ===== Focus Ring ===== */
+    .focus-ring {
+        @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+        --tw-ring-color: rgba(122, 162, 247, 0.5);
+        --tw-ring-offset-color: #1a1b26;
+    }
+}
+
+/* ===== Scrollbars ===== */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(22, 22, 30, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(86, 95, 137, 0.4);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(86, 95, 137, 0.7);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(86, 95, 137, 0.3);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(86, 95, 137, 0.6);
+}
+
+/* ===== Animations ===== */
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .7;
+    }
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-ticker {
+    animation: ticker 30s linear infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ===== Leaflet Dark Theme Override ===== */
+.leaflet-container {
+    background: #1a1b26 !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.leaflet-tile-pane {
+    filter: none;
+}
+
+.leaflet-control-zoom a {
+    background: rgba(31, 35, 53, 0.9) !important;
+    color: #c0caf5 !important;
+    border: 1px solid #292e42 !important;
+    backdrop-filter: blur(8px);
+}
+
+.leaflet-control-zoom a:hover {
+    background: rgba(41, 46, 66, 0.95) !important;
+    color: #7dcfff !important;
+}
+
+.leaflet-control-attribution {
+    background: rgba(22, 22, 30, 0.85) !important;
+    color: #565f89 !important;
+    font-size: 8px !important;
+    backdrop-filter: blur(4px);
+}
+
+.leaflet-popup-content-wrapper {
+    background: rgba(31, 35, 53, 0.95) !important;
+    color: #c0caf5 !important;
+    border: 1px solid #292e42 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 1px rgba(125, 207, 255, 0.1) !important;
+    backdrop-filter: blur(12px);
+}
+
+.leaflet-popup-tip {
+    background: rgba(31, 35, 53, 0.95) !important;
+}
+
+/* ===== Pulsing Map Marker ===== */
+.pulse-marker {
+    border-radius: 50%;
+    position: relative;
+}
+
+.pulse-marker::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    animation: ripple-marker 1.5s ease-out infinite;
+}
+
+@keyframes ripple-marker {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}

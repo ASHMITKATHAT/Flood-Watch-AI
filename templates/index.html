@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equinox Flood Prediction System - API</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --success: #16a34a;
+            --bg: #f8fafc;
+            --text: #1e293b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #dcfce7;
+            color: var(--success);
+            border-radius: 999px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            text-align: left;
+        }
+
+        .card {
+            border: 1px solid #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .card p {
+            margin: 0;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Equinox Flood Prediction API</h1>
+        <div class="status">● System Operational</div>
+
+        <p>This is the backend API service for the Equinox Flood Prediction System. The frontend application is hosted
+            separately.</p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>System Status</h3>
+                <p>Check system health and loaded models.</p>
+                <code>GET /api/system/status</code>
+            </div>
+            <div class="card">
+                <h3>Prediction</h3>
+                <p>Submit parameters for flood risk analysis.</p>
+                <code>POST /api/predict</code>
+            </div>
+            <div class="card">
+                <h3>Documentation</h3>
+                <p>Full API reference available in docs.</p>
+                <a href="/docs">View Docs &rarr;</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

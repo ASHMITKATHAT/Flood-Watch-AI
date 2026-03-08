@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: infrastructure/Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../backend:/app/backend
+      - ../templates:/app/templates
+      - ../uploads:/app/uploads
+    environment:
+      - FLASK_ENV=development
+      - ALLOWED_HOSTS=*
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Optional: Add a database service here if needed
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_USER: equinox
+  #     POSTGRES_PASSWORD: password
+  #     POSTGRES_DB: equinox
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

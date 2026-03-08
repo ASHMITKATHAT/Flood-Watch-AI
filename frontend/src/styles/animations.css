@@ -1,0 +1,172 @@
+/* ===== Core Animations — Tokyo Dark ===== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== Advanced FX ===== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
+  50% { box-shadow: 0 0 15px currentColor, 0 0 30px currentColor, 0 0 45px currentColor; }
+}
+
+@keyframes scan-line {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
+
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes glitch-text {
+  0%, 100% { text-shadow: 2px 0 #f7768e, -2px 0 #7dcfff; }
+  25% { text-shadow: -2px 0 #f7768e, 2px 0 #7dcfff; }
+  50% { text-shadow: 2px 2px #f7768e, -2px -2px #7dcfff; }
+  75% { text-shadow: -2px 2px #f7768e, 2px -2px #7dcfff; }
+}
+
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ===== New Tokyo Dark Animations ===== */
+
+@keyframes neon-breathe {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(125, 207, 255, 0.1), 0 0 8px rgba(125, 207, 255, 0.05);
+    border-color: rgba(41, 46, 66, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(125, 207, 255, 0.2), 0 0 24px rgba(125, 207, 255, 0.08);
+    border-color: rgba(125, 207, 255, 0.15);
+  }
+}
+
+@keyframes border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes hud-scan {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes data-stream {
+  0% { transform: translateY(0); opacity: 0.7; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes status-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; filter: blur(4px); }
+  to { transform: translateY(0); opacity: 1; filter: blur(0); }
+}
+
+/* ===== Utility Classes ===== */
+
+.fade-in { animation: fadeIn 0.3s ease-in; }
+.slide-in { animation: slideIn 0.3s ease-out; }
+.slide-in-right { animation: slideInRight 0.4s ease-out; }
+.pulse { animation: pulse 2s infinite; }
+.animate-pulse-fast { animation: pulse 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.spin { animation: spin 1s linear infinite; }
+.float { animation: float 3s ease-in-out infinite; }
+.glow-pulse { animation: glow-pulse 2s ease-in-out infinite; }
+.radar-sweep { animation: radar-sweep 4s linear infinite; }
+.glitch-text { animation: glitch-text 0.5s ease-in-out infinite alternate; }
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(125, 207, 255, 0.06) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-neon-breathe { animation: neon-breathe 3s ease-in-out infinite; }
+.animate-border-flow {
+  background: linear-gradient(90deg, rgba(125, 207, 255, 0.1), rgba(122, 162, 247, 0.1), rgba(187, 154, 247, 0.1), rgba(125, 207, 255, 0.1));
+  background-size: 300% 100%;
+  animation: border-flow 4s ease-in-out infinite;
+}
+.animate-hud-scan { animation: hud-scan 2s ease-in-out infinite; }
+.animate-slide-up { animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-status-blink { animation: status-blink 1.5s ease-in-out infinite; }
+
+/* ===== Staggered Children — unified 200ms ease-in-out ===== */
+.stagger-children>* {
+  opacity: 0;
+  animation: slideUp 0.2s ease-in-out forwards;
+}
+
+.stagger-children>*:nth-child(1) { animation-delay: 0ms; }
+.stagger-children>*:nth-child(2) { animation-delay: 80ms; }
+.stagger-children>*:nth-child(3) { animation-delay: 160ms; }
+.stagger-children>*:nth-child(4) { animation-delay: 240ms; }
+.stagger-children>*:nth-child(5) { animation-delay: 320ms; }
+.stagger-children>*:nth-child(6) { animation-delay: 400ms; }
+.stagger-children>*:nth-child(7) { animation-delay: 480ms; }
+.stagger-children>*:nth-child(8) { animation-delay: 560ms; }
+
+/* ===== Scan Line Overlay ===== */
+.scan-line-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(125, 207, 255, 0.4), transparent);
+  animation: scan-line 3s linear infinite;
+  pointer-events: none;
+}
+
+/* ===== Hover Glow Effect ===== */
+.hover-glow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(125, 207, 255, 0.1), 0 4px 16px rgba(0, 0, 0, 0.3);
+}

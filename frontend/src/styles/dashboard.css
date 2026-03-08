@@ -1,0 +1,178 @@
+/* ===== EQUINOX Dashboard — Tokyo Dark Theme ===== */
+
+/* Glass Panel */
+.glass-panel {
+  background: rgba(31, 35, 53, 0.85);
+  border: 1px solid rgba(41, 46, 66, 0.8);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(125, 207, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 15px rgba(125, 207, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+/* Border Glow Variants */
+.border-glow-cyan {
+  box-shadow: 0 0 12px rgba(125, 207, 255, 0.08), 0 0 4px rgba(125, 207, 255, 0.04);
+}
+
+.border-glow-red {
+  box-shadow: 0 0 12px rgba(247, 118, 142, 0.08), 0 0 4px rgba(247, 118, 142, 0.04);
+}
+
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(86, 95, 137, 0.3);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(86, 95, 137, 0.5);
+}
+
+/* Leaflet Dark Popup */
+.equinox-popup .leaflet-popup-content-wrapper {
+  background: rgba(31, 35, 53, 0.95) !important;
+  color: #c0caf5 !important;
+  border: 1px solid #292e42 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(12px);
+}
+
+.equinox-popup .leaflet-popup-tip {
+  background: rgba(31, 35, 53, 0.95) !important;
+  border: none !important;
+}
+
+.equinox-popup .leaflet-popup-content {
+  margin: 12px !important;
+}
+
+/* Leaflet Map Container */
+.leaflet-container {
+  background: #1a1b26 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.leaflet-tile-pane {
+  filter: none;
+}
+
+.leaflet-control-zoom a {
+  background: rgba(31, 35, 53, 0.9) !important;
+  color: #c0caf5 !important;
+  border-color: #292e42 !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(22, 22, 30, 0.85) !important;
+  color: #565f89 !important;
+  font-size: 9px !important;
+}
+
+.leaflet-control-attribution a {
+  color: #7aa2f7 !important;
+}
+
+/* Stagger children animation — 200ms ease-in-out slide-up */
+.stagger-children>* {
+  opacity: 0;
+  animation: fadeSlideIn 0.2s ease-in-out forwards;
+}
+
+.stagger-children>*:nth-child(1) { animation-delay: 0ms; }
+.stagger-children>*:nth-child(2) { animation-delay: 80ms; }
+.stagger-children>*:nth-child(3) { animation-delay: 160ms; }
+.stagger-children>*:nth-child(4) { animation-delay: 240ms; }
+.stagger-children>*:nth-child(5) { animation-delay: 320ms; }
+.stagger-children>*:nth-child(6) { animation-delay: 400ms; }
+.stagger-children>*:nth-child(7) { animation-delay: 480ms; }
+.stagger-children>*:nth-child(8) { animation-delay: 560ms; }
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scan line animation */
+@keyframes scan-line {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
+
+.animate-scan-line {
+  animation: scan-line 3s linear infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ===== ML Prediction Card — Critical Pulse ===== */
+@keyframes mlCardCriticalPulse {
+  0%, 100% {
+    box-shadow: 0 0 24px rgba(247, 118, 142, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(247, 118, 142, 0.35), 0 0 60px rgba(247, 118, 142, 0.1);
+  }
+}
+
+.ml-card-critical-pulse {
+  animation: mlCardCriticalPulse 2s ease-in-out infinite;
+}
+
+@keyframes mlGaugeCriticalArc {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+
+.ml-gauge-critical-arc {
+  animation: mlGaugeCriticalArc 1.8s ease-in-out infinite;
+}
+
+/* ===== Card entrance animation ===== */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-card-enter {
+  animation: cardEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

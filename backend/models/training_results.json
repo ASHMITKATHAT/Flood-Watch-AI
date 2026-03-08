@@ -1,0 +1,36 @@
+{
+  "training_date": "2026-02-21T00:15:05.602248",
+  "evaluation_metrics": {
+    "random_forest": {
+      "rmse": 3.917889614412498,
+      "mae": 0.5509267054473299,
+      "r2": 0.9921198555410092,
+      "explained_variance": 1.1094647195096434
+    },
+    "xgboost": {
+      "rmse": 4.938611832204012,
+      "mae": 1.619419036412146,
+      "r2": 0.9874789839328325,
+      "explained_variance": 0.8970628120315999
+    },
+    "lightgbm": {
+      "rmse": 13.161894361265695,
+      "mae": 3.693585075420517,
+      "r2": 0.9110662532780465,
+      "explained_variance": 0.9246554696382373
+    },
+    "gradient_boosting": {
+      "rmse": 4.5149192971381185,
+      "mae": 0.48522126989405534,
+      "r2": 0.9895352279829759,
+      "explained_variance": 1.0917687089336963
+    }
+  },
+  "model_versions": {
+    "random_forest": "models\\random_forest_model.pkl",
+    "xgboost": "models\\xgboost_model.pkl",
+    "lightgbm": "models\\lightgbm_model.pkl",
+    "gradient_boosting": "models\\gradient_boosting_model.pkl",
+    "ensemble": "models\\ensemble_model.pkl"
+  }
+}
