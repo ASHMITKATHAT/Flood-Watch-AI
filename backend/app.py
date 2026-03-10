@@ -14,9 +14,12 @@ import joblib
 from pathlib import Path
 import asyncio
 import random
+import math
 
 from physics_engine import AdvancedFloodML
 from real_data_integration import DataIntegration
+from topography_engine import get_terrain_metrics
+from sar_engine import get_inundation_metrics
 
 def get_live_data_sync(lat=26.9124, lng=75.7873):
     async def fetch():
@@ -27,6 +30,11 @@ def get_live_data_sync(lat=26.9124, lng=75.7873):
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    print(f"Unhandled exception: {e}")
+    return jsonify({"error": "Internal Server Error", "message": str(e)}), 500
 
 # Configuration
 MODELS_DIR = Path(os.path.dirname(os.path.abspath(__file__))) / "models"
@@ -358,29 +366,10 @@ def acknowledge_alert(alert_id):
         "timestamp": datetime.now().isoformat()
     })
 
-from neon_db import fetch_all
-
 @app.route('/api/active_alerts', methods=['GET'])
 def get_active_alerts():
-    """Fetch all active alerts from Neon DB or provide mocked fallback."""
-    try:
-        # Attempt to fetch from Neon DB
-        alerts = fetch_all("active_alerts")
-        if alerts and len(alerts) > 0:
-            return jsonify(alerts)
-            
-        # Fallback to mock data if table is empty or connection fails
-        mock_alerts = [
-            {"id": "alert_mock_1", "type": "Flood Warning", "severity": "critical", "location": "Jaipur", "zone_name": "Central Basin", "description": "Critical water levels detected. Evacuation recommended.", "created_at": datetime.now().isoformat()},
-            {"id": "alert_mock_2", "type": "Heavy Rainfall", "severity": "high", "location": "Jodhpur", "zone_name": "Riverside", "description": "Sustained heavy rainfall. Monitor water levels closely.", "created_at": datetime.now().isoformat()}
-        ]
-        return jsonify(mock_alerts)
-    except Exception as e:
-        print(f"Error fetching active alerts: {e}")
-        mock_alerts = [
-            {"id": "alert_err_1", "type": "System Default", "severity": "medium", "location": "System", "zone_name": "Unknown", "description": "Using fallback alert data.", "created_at": datetime.now().isoformat()}
-        ]
-        return jsonify(mock_alerts)
+    """Safe endpoint returning empty alerts list to prevent frontend crash."""
+    return jsonify([])
 
 @app.route('/api/reports', methods=['POST'])
 def submit_report():
@@ -456,8 +445,6 @@ def get_rainfall(district):
         })
 
 # ========== NEW EQUINOX API ROUTES ==========
-
-import math
 
 def _generate_grid(center_lat, center_lng, grid_size=20, cell_size_m=100, scenario='live', rainfall=0):
     """Generate topographical pixel grid data for the map overlay."""
@@ -765,7 +752,6 @@ def submit_incident_report():
 
 
 # ========== ISRO DEM TERRAIN ENGINE ==========
-from topography_engine import get_terrain_metrics
 
 @app.route('/api/terrain', methods=['GET'])
 def get_terrain():
@@ -809,7 +795,6 @@ def get_terrain():
 
 
 # ========== SENTINEL-1 SAR ENGINE ==========
-from sar_engine import get_inundation_metrics
 
 @app.route('/api/sar', methods=['GET'])
 def get_sar_data():
@@ -874,6 +859,6 @@ if __name__ == '__main__':
     app.run(
         host='0.0.0.0',
         port=5000,
-        debug=True,
+        debug=False,
         threaded=True
     )

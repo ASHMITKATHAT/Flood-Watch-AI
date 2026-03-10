@@ -72,7 +72,7 @@ const SARTelemetryPanel: React.FC<SARTelemetryPanelProps> = ({
     // ── Loading State ──
     if (state === 'loading') {
         return (
-            <div className="glass-panel p-6 border border-[#414868] rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] relative overflow-hidden">
+            <div className="w-full h-auto flex flex-col gap-3 rounded-lg bg-slate-900 border border-slate-700 p-4 flex-shrink-0 relative overflow-hidden">
                 {/* Radar sweep animation */}
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="sar-sweep" />
@@ -156,7 +156,7 @@ const SARTelemetryPanel: React.FC<SARTelemetryPanelProps> = ({
     // ── Error State ──
     if (state === 'error') {
         return (
-            <div className="glass-panel p-6 border border-[#f7768e]/30 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-[#f7768e]/50 transition-all duration-200 ease-in-out">
+            <div className="w-full h-auto flex flex-col gap-3 rounded-lg bg-slate-900 border border-slate-700 p-4 flex-shrink-0">
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
                         <div className="p-2 rounded-lg bg-[#f7768e]/10 border border-[#f7768e]/20">
@@ -196,7 +196,7 @@ const SARTelemetryPanel: React.FC<SARTelemetryPanelProps> = ({
 
     return (
         <div
-            className="glass-panel p-6 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-200 ease-in-out relative overflow-hidden"
+            className="w-full h-auto flex flex-col gap-3 rounded-lg bg-slate-900 border border-slate-700 p-4 flex-shrink-0 relative overflow-hidden"
             style={{
                 borderColor: isFlooded ? 'rgba(247,118,142,0.3)' : 'rgba(158,206,106,0.2)',
                 background: floodBg,

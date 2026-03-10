@@ -21,7 +21,7 @@ class PerformanceMonitorMiddleware(BaseHTTPMiddleware):
         
         # Calculate execution time
         process_time = time.time() - start_time
-        process_time_ms = round(process_time * 1000, 2)
+        process_time_ms = round(float(process_time * 1000.0), 2)
         
         # Add latency header for client-side telemetry tracking
         response.headers["X-Process-Time-Ms"] = str(process_time_ms)

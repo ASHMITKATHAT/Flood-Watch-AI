@@ -17,8 +17,16 @@ import pandas as pd
 from io import BytesIO
 import aiohttp
 import asyncio
+from tenacity import retry, stop_after_attempt, wait_exponential
 
 from config import get_config
+
+class APIConnectionError(Exception):
+    pass
+
+class OpenWeatherTimeoutError(APIConnectionError):
+    """Custom exception raised when all retries fail for OpenWeather API due to timeouts."""
+    pass
 
 config = get_config()
 logger = logging.getLogger(__name__)
@@ -38,7 +46,7 @@ class DataIntegration:
         self.session = aiohttp.ClientSession()
         return self
     
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
+    async def __aexit__(self, exc_type, exc_val, exc_tb) -> None:
         """Async context manager exit"""
         if self.session:
             await self.session.close()
@@ -88,38 +96,41 @@ class DataIntegration:
                 if response.status == 200:
                     data = await response.json()
                     
-                    # Extract hourly precipitation
-                    precip_data = data.get('properties', {}).get('parameter', {}).get('PRECTOTCORR', {})
+                    # Extract hourly precipitation safely
+                    properties = data.get('properties') or {}
+                    parameter = properties.get('parameter') or {}
+                    precip_data = parameter.get('PRECTOTCORR') or {}
                     
-                    # Get last 6 hours of values
-                    hourly_values = list(precip_data.values())[-hours_back:]
+                    # Get last 6 hours of values without Pyre list slicing errors
+                    import collections
+                    hourly_values = list(collections.deque(precip_data.values(), maxlen=hours_back))
                     if not hourly_values:
-                        hourly_values = [0] * hours_back
+                        hourly_values = [0.0] * hours_back
                     
                     # Add some controlled pseudo-randomness specifically for the equinox presentation
                     # so that different locations actually show varying metrics based on their coordinates
                     coord_seed = abs(math.sin(lat * lon * 100))
                     bonus_rain = round(coord_seed * 45.0, 1) if coord_seed > 0.5 else round(coord_seed * 5.0, 1)
                     
-                    current_rain = float(hourly_values[-1]) + bonus_rain
-                    cumulative_6h = sum(float(x) for x in hourly_values) + (bonus_rain * 3)
+                    current_rain = float(hourly_values[-1]) + float(bonus_rain)
+                    cumulative_6h = float(sum(float(x) for x in hourly_values)) + (float(bonus_rain) * 3.0)
                     
                     # ── Open-Meteo fallback if NASA returns 0mm ──
                     data_source = 'NASA_POWER'
                     if current_rain <= 0:
                         open_meteo_rain = await self._fetch_open_meteo_precipitation(lat, lon)
                         if open_meteo_rain > 0:
-                            current_rain = open_meteo_rain
-                            cumulative_6h = open_meteo_rain * 3  # estimate
+                            current_rain = float(open_meteo_rain)
+                            cumulative_6h = current_rain * 3.0  # estimate
                             data_source = 'OpenMeteo_Fallback'
                             logger.info(f"NASA returned 0mm — using Open-Meteo: {open_meteo_rain}mm")
                     
                     result = {
-                        'latitude': lat,
-                        'longitude': lon,
-                        'rainfall_mm': round(current_rain, 1),
-                        'hourly_rainfall': [round(float(x) + bonus_rain, 1) for x in hourly_values],
-                        'cumulative_6h': round(cumulative_6h, 1),
+                        'latitude': float(lat),
+                        'longitude': float(lon),
+                        'rainfall_mm': round(float(current_rain), 1),
+                        'hourly_rainfall': [round(float(x) + float(bonus_rain), 1) for x in hourly_values],
+                        'cumulative_6h': round(float(cumulative_6h), 1),
                         'data_source': data_source,
                         'timestamp': datetime.now().isoformat(),
                         'resolution_km': 10
@@ -148,10 +159,11 @@ class DataIntegration:
                 precip_array = np.array(data['precipitation'])
                 
                 # Get current rainfall (last hour)
-                current_rain = float(precip_array[-1]) if len(precip_array) > 0 else 0
+                current_rain = float(precip_array[-1]) if len(precip_array) > 0 else 0.0
                 
                 # Get hourly rainfall for last 6 hours
-                hourly = precip_array[-6:].tolist() if len(precip_array) >= 6 else [0] * 6
+                import collections
+                hourly = list(collections.deque(precip_array, maxlen=6)) if len(precip_array) >= 6 else [0.0] * 6
                 
                 # Calculate cumulative
                 cumulative_6h = sum(hourly)
@@ -200,34 +212,54 @@ class DataIntegration:
                 'units': 'metric'
             }
             
-            async with self.session.get(
-                config.OPENWEATHER_API,
-                params=params
-            ) as response:
-                if response.status == 200:
-                    data = await response.json()
+            # Use tenacity via an inner async function for retries
+            @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=4), reraise=True)
+            async def _fetch():
+                async with self.session.get(
+                    config.OPENWEATHER_API,
+                    params=params,
+                    timeout=aiohttp.ClientTimeout(total=5)
+                ) as response:
+                    if response.status != 200:
+                        raise aiohttp.ClientResponseError(
+                            request_info=response.request_info,
+                            history=response.history,
+                            status=response.status,
+                            message=f"OpenWeather API error: {response.status}"
+                        )
+                    return await response.json()
+            
+            try:
+                data = await _fetch()
+            except Exception as retry_err:
+                logger.error(f"OpenWeather API failed after retries: {str(retry_err)}")
+                raise OpenWeatherTimeoutError(f"OpenWeatherMap API connection timed out or failed repeatedly: {str(retry_err)}")
+                
+            wind = data.get('wind') or {}
+            clouds = data.get('clouds') or {}
+            weather_list = data.get('weather') or [{}]
+            
+            result = {
+                'temperature_c': data['main']['temp'],
+                'humidity_percent': data['main']['humidity'],
+                'pressure_hpa': data['main']['pressure'],
+                'wind_speed_mps': wind.get('speed', 0),
+                'wind_direction_deg': wind.get('deg', 0),
+                'cloudiness_percent': clouds.get('all', 0),
+                'weather_description': weather_list[0].get('description', 'Unknown') if weather_list else 'Unknown',
+                'timestamp': datetime.now().isoformat(),
+                'data_source': 'OpenWeather'
+            }
+            
+            # Cache the result
+            self.cache[cache_key] = (datetime.now(), result)
+            
+            logger.info(f"OpenWeather data fetched: {result['temperature_c']}°C")
+            return result
                     
-                    result = {
-                        'temperature_c': data['main']['temp'],
-                        'humidity_percent': data['main']['humidity'],
-                        'pressure_hpa': data['main']['pressure'],
-                        'wind_speed_mps': data['wind']['speed'],
-                        'wind_direction_deg': data['wind'].get('deg', 0),
-                        'cloudiness_percent': data['clouds']['all'],
-                        'weather_description': data['weather'][0]['description'],
-                        'timestamp': datetime.now().isoformat(),
-                        'data_source': 'OpenWeather'
-                    }
-                    
-                    # Cache the result
-                    self.cache[cache_key] = (datetime.now(), result)
-                    
-                    logger.info(f"OpenWeather data fetched: {result['temperature_c']}°C")
-                    return result
-                else:
-                    logger.error(f"OpenWeather API error: {response.status}")
-                    return self._get_fallback_weather(lat, lon)
-                    
+        except OpenWeatherTimeoutError as e:
+            # Let the global error handler catch this specific timeout failure
+            raise e
         except Exception as e:
             logger.error(f"Error fetching OpenWeather data: {str(e)}")
             return self._get_fallback_weather(lat, lon)
@@ -285,11 +317,11 @@ class DataIntegration:
                 stats = {'urban_percent': 5, 'agriculture_percent': 10, 'forest_percent': 15, 'water_percent': 70}
                 
             result = {
-                'latitude': lat,
-                'longitude': lon,
-                'land_use_class': primary_class,
-                'land_use_code': class_code,
-                'confidence': round(0.75 + (coord_seed * 0.2), 2),
+                'latitude': float(lat),
+                'longitude': float(lon),
+                'land_use_class': str(primary_class),
+                'land_use_code': int(class_code),
+                'confidence': round(float(0.75 + (coord_seed * 0.2)), 2),
                 'area_analysis': stats,
                 'timestamp': datetime.now().isoformat(),
                 'data_source': 'ISRO_Bhuvan_LULC (Processed)'
@@ -369,9 +401,9 @@ class DataIntegration:
             soil_moisture = min(0.9, soil_moisture)
             
             return {
-                'latitude': lat,
-                'longitude': lon,
-                'soil_moisture': round(soil_moisture, 2),
+                'latitude': float(lat),
+                'longitude': float(lon),
+                'soil_moisture': round(float(soil_moisture), 2),
                 'soil_moisture_percent': int(soil_moisture * 100),
                 'derived_from': 'rainfall_model',
                 'timestamp': datetime.now().isoformat()
@@ -411,26 +443,27 @@ class DataIntegration:
             results = await asyncio.gather(*tasks, return_exceptions=True)
             
             # Combine results
-            combined_data = {
-                'coordinates': {'lat': lat, 'lon': lon},
-                'timestamp': datetime.now().isoformat(),
-                'data_sources': {}
-            }
-            
+            data_sources_dict: Dict[str, Any] = {}
             source_names = ['nasa_gpm', 'openweather', 'isro_lulc', 'soil_moisture']
             
             for i, (source_name, result) in enumerate(zip(source_names, results)):
                 if isinstance(result, Exception):
                     logger.error(f"Error fetching {source_name}: {str(result)}")
-                    combined_data['data_sources'][source_name] = {
+                    data_sources_dict[source_name] = {
                         'error': str(result),
                         'status': 'failed'
                     }
                 else:
-                    combined_data['data_sources'][source_name] = {
+                    data_sources_dict[source_name] = {
                         'data': result,
                         'status': 'success'
                     }
+            
+            combined_data = {
+                'coordinates': {'lat': lat, 'lon': lon},
+                'timestamp': datetime.now().isoformat(),
+                'data_sources': data_sources_dict
+            }
             
             # Calculate composite metrics
             combined_data['composite_metrics'] = self._calculate_composite_metrics(combined_data)
@@ -490,17 +523,23 @@ class DataIntegration:
         )
         try:
             if self.session:
-                async with self.session.get(url, timeout=aiohttp.ClientTimeout(total=5)) as resp:
-                    if resp.status == 200:
-                        data = await resp.json()
-                        precip = float(data.get('current', {}).get('precipitation', 0))
-                        logger.info(f"Open-Meteo precipitation: {precip}mm for ({lat},{lon})")
-                        return precip
+                @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=4), reraise=True)
+                async def _fetch():
+                    async with self.session.get(url, timeout=aiohttp.ClientTimeout(total=5)) as resp:
+                        if resp.status != 200:
+                            raise Exception(f"Open-Meteo bad status: {resp.status}")
+                        return await resp.json()
+                        
+                data = await _fetch()
+                precip = float(data.get('current', {}).get('precipitation', 0))
+                logger.info(f"Open-Meteo precipitation: {precip}mm for ({lat},{lon})")
+                return precip
         except Exception as e:
             logger.warning(f"Open-Meteo fallback failed: {e}")
         return 0.0
 
     @staticmethod
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=4), reraise=True)
     def fetch_open_meteo_precipitation(lat: float, lon: float) -> Optional[float]:
         """Strict synchronous HTTP GET to Open-Meteo.
         Returns precipitation in mm on success, None on any failure."""
@@ -515,9 +554,13 @@ class DataIntegration:
             if precip is not None:
                 return float(precip)
             return None
+        except requests.exceptions.Timeout as e:
+            logger.warning(f"Open-Meteo sync GET timed out: {e}")
+            raise OpenWeatherTimeoutError(f"Open-Meteo sync timeout: {e}")
         except Exception as e:
             logger.warning(f"Open-Meteo sync GET failed: {e}")
-            return None
+            # Reraise so tenacity can catch and retry
+            raise e
 
     async def _get_fallback_rainfall_async(self, lat: float, lon: float) -> Dict[str, Any]:
         """Get fallback rainfall data, trying Open-Meteo first."""
@@ -526,38 +569,20 @@ class DataIntegration:
         return {
             'latitude': lat,
             'longitude': lon,
-            'rainfall_mm': round(open_meteo_rain, 1),
-            'hourly_rainfall': [round(open_meteo_rain, 1)] + [0.0] * 5,
-            'cumulative_6h': round(open_meteo_rain * 3, 1),
+            'rainfall_mm': round(float(open_meteo_rain), 1),
+            'hourly_rainfall': [round(float(open_meteo_rain), 1)] + [0.0] * 5,
+            'cumulative_6h': round(float(open_meteo_rain * 3.0), 1),
             'data_source': source,
             'timestamp': datetime.now().isoformat()
         }
 
     def _get_fallback_rainfall(self, lat: float, lon: float) -> Dict[str, Any]:
         """Get static fallback rainfall data (synchronous, last resort)."""
-        return {
-            'latitude': lat,
-            'longitude': lon,
-            'rainfall_mm': 0.0,
-            'hourly_rainfall': [0.0] * 6,
-            'cumulative_6h': 0.0,
-            'data_source': 'fallback',
-            'timestamp': datetime.now().isoformat()
-        }
+        raise APIConnectionError("Failed to fetch rainfall data from NASA GPM and Open-Meteo. No fallback available.")
     
     def _get_fallback_weather(self, lat: float, lon: float) -> Dict[str, Any]:
         """Get fallback weather data"""
-        return {
-            'temperature_c': 30.0,
-            'humidity_percent': 40,
-            'pressure_hpa': 1013,
-            'wind_speed_mps': 5.0,
-            'wind_direction_deg': 0,
-            'cloudiness_percent': 20,
-            'weather_description': 'clear sky',
-            'timestamp': datetime.now().isoformat(),
-            'data_source': 'fallback'
-        }
+        raise APIConnectionError("Failed to fetch weather data from Open-Meteo. No fallback available.")
     
     def _get_fallback_lulc(self, lat: float, lon: float) -> Dict[str, Any]:
         """Get fallback LULC data"""
@@ -629,8 +654,8 @@ class DataIntegration:
             })
             
             # Keep only last 1000 entries
-            if len(cache_data) > 1000:
-                cache_data = cache_data[-1000:]
+            import collections
+            cache_data = list(collections.deque(cache_data, maxlen=1000))
             
             # Save
             with open(cache_file, 'w') as f:

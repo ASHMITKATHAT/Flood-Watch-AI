@@ -107,7 +107,7 @@ const MLPredictionCard: React.FC<MLPredictionCardProps> = ({ data, isLoading = f
     // ── Loading state ────────────────────────────────────────
     if (isLoading && !data) {
         return (
-            <div className="glass-panel p-6 border border-[#414868] rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center gap-3" style={{ minHeight: 320 }}>
+            <div className="w-full h-auto flex flex-col gap-3 rounded-lg bg-slate-900 border border-slate-700 p-4 flex-shrink-0 items-center justify-center">
                 <Loader2 className="w-8 h-8 text-[#7aa2f7] animate-spin" />
                 <span className="text-xs font-mono text-[#565f89] tracking-widest uppercase">Inference Pipeline Running…</span>
                 <span className="text-[10px] font-mono text-[#565f89]/70">Fusing Weather + Topo + SAR → RF Model</span>
@@ -118,7 +118,7 @@ const MLPredictionCard: React.FC<MLPredictionCardProps> = ({ data, isLoading = f
     // ── No data state ────────────────────────────────────────
     if (!data) {
         return (
-            <div className="glass-panel p-6 border border-[#414868] rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center gap-3" style={{ minHeight: 320 }}>
+            <div className="w-full h-auto flex flex-col gap-3 rounded-lg bg-slate-900 border border-slate-700 p-4 flex-shrink-0 items-center justify-center">
                 <WifiOff className="w-8 h-8 text-[#565f89]" />
                 <span className="text-xs font-bold text-[#565f89] tracking-wider uppercase">No Data</span>
                 <span className="text-[10px] font-mono text-[#565f89]/70 text-center max-w-[220px]">Search a location to run the ML prediction pipeline</span>
@@ -134,7 +134,7 @@ const MLPredictionCard: React.FC<MLPredictionCardProps> = ({ data, isLoading = f
 
     return (
         <div
-            className={`glass-panel p-6 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-200 ease-in-out relative overflow-hidden ${tier === 'critical' ? 'ml-card-critical-pulse' : ''}`}
+            className={`w-full h-auto flex flex-col gap-3 rounded-lg bg-slate-900 border border-slate-700 p-4 flex-shrink-0 relative overflow-hidden ${tier === 'critical' ? 'ml-card-critical-pulse' : ''}`}
             style={{ borderColor: colors.border, background: colors.bg, boxShadow: `0 0 24px ${colors.glow}` }}
         >
             {/* Ambient glow ring */}

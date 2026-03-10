@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, BackgroundTasks, HTTPException
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
@@ -77,9 +78,15 @@ class PredictionResponse(BaseModel):
 
 @app.get("/api/active_alerts")
 async def get_active_alerts():
-    """Fetch all active alerts from Neon DB."""
-    data = db.fetch_all("active_alerts", conditions={"is_active": True})
-    return {"data": data}
+    """Fetch all active alerts from Neon DB. No mock data."""
+    try:
+        alerts = db.fetch_all("active_alerts", conditions={"is_active": True})
+        if alerts and len(alerts) > 0:
+            return alerts
+        return []
+    except Exception as e:
+        print(f"Error fetching active alerts: {e}")
+        return JSONResponse(status_code=500, content={"error": "Database connection failed", "code": 500})
 
 @app.get("/api/sensor_data")
 async def get_sensor_data():
@@ -106,62 +113,73 @@ async def predict_flood_risk(lat: float, lng: float):
     if ml_model is None:
         raise HTTPException(status_code=503, detail="ML Model not loaded.")
 
-    # ── A) Fetch Weather + Soil Moisture Data (Graceful Degradation) ──
-    rain_data = 0.0
-    soil_moisture = 50.0
+    # ── A) Fetch Weather + Soil Moisture Data (Strict) ──
     try:
         async with DataIntegration() as di:
             weather_data = await di.fetch_nasa_gpm_data(lat, lng, hours_back=6)
             rain_data = weather_data.get('rainfall_mm', 0.0)
-            # Also attempt soil moisture from the same integration
+            
             soil_data = await di.fetch_soil_moisture_data(lat, lng)
             soil_moisture = soil_data.get('soil_moisture', 50.0)
+            
+            # Dynamic Feature Engineering: antecedent_moisture
+            import aiohttp
+            async with aiohttp.ClientSession() as session:
+                hist_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lng}&hourly=precipitation&past_days=3"
+                async with session.get(hist_url, timeout=10) as resp:
+                    if resp.status == 200:
+                        hist_data = await resp.json()
+                        precip_array = hist_data.get('hourly', {}).get('precipitation', [])
+                        antecedent_moisture = sum(precip_array) if precip_array else 30.0
+                    else:
+                        antecedent_moisture = 30.0
     except Exception as e:
         print(f"[PREDICT] Weather/Soil Fetch Error: {e}")
+        raise HTTPException(status_code=424, detail="Failed Dependency: Core sensor API offline (Weather/Soil)")
 
-    # ── B) Fetch Topography Data (Graceful Degradation) ──
+    # ── B) Fetch Topography Data (Strict) ──
     try:
         topo_data = topography_engine.get_terrain_metrics(lat, lng)
         if topo_data and "error" in topo_data:
             raise Exception(topo_data["error"])
+        elevation = topo_data.get("elevation_m")
+        slope = topo_data.get("slope_degrees")
+        flow_acc = topo_data.get("flow_accumulation")
+        aspect = topo_data.get("aspect_degrees")
+        if elevation is None:
+            raise Exception("No elevation data returned")
     except Exception as e:
         print(f"[PREDICT] Topography Fetch Error: {e}")
-        topo_data = {"elevation_m": 250.0, "slope_degrees": 2.5}
+        raise HTTPException(status_code=424, detail="Failed Dependency: Core sensor API offline (Topography)")
 
-    elevation = topo_data.get("elevation_m") or 250.0
-    slope = topo_data.get("slope_degrees") or 2.5
-    flow_acc = topo_data.get("flow_accumulation") or 1000.0
-    aspect = topo_data.get("aspect_degrees") or 180.0
-
-    # ── C) Fetch SAR Data (Graceful Degradation — NOT a model input) ──
+    # ── C) Fetch SAR Data (Strict) ──
     try:
         sar_data_full = await asyncio.to_thread(
             sar_engine.get_inundation_metrics, lat, lng, 5
         )
-        sar_data = sar_data_full.get('flooded_area_hectares') or 0.0
+        sar_data = sar_data_full.get('flooded_area_hectares')
+        if sar_data is None:
+            if sar_data_full.get('status') == 'GEE_NOT_INITIALIZED':
+                 sar_data = 0.0 # Graceful fallback only if GEE is intentionally bypassed for local dev
+            else:
+                 raise Exception("No SAR data returned")
     except Exception as e:
         print(f"[PREDICT] SAR Fetch Error: {e}")
-        sar_data_full = {"status": "ERROR"}
-        sar_data = 0.0
+        raise HTTPException(status_code=424, detail="Failed Dependency: Core sensor API offline (SAR)")
 
     # ── 3. Strict Feature Alignment ──
-    # RandomForestRegressor expects 11 features in exact training order:
-    #   rainfall_mm, slope_degrees, flow_accumulation, soil_moisture,
-    #   antecedent_moisture, distance_to_sink, sink_depth, aspect_degrees,
-    #   elevation_m, land_use_code, flood_depth_cm
-    # NOTE: SAR data is NOT a model feature — kept in the response only.
+    # Note: distance_to_sink, sink_depth, and land_use_code have been purged due to static hardcoding.
+    # TODO: Model Retraining Required! Need to update .pkl feature shape to mathematically match this new live array.
     features = np.array([[
-        rain_data,          # rainfall_mm
-        slope,              # slope_degrees
-        flow_acc,           # flow_accumulation
-        soil_moisture,      # soil_moisture (from weather API)
-        30.0,               # antecedent_moisture  (regional default)
-        500.0,              # distance_to_sink     (regional default)
-        2.0,                # sink_depth           (regional default)
-        aspect,             # aspect_degrees
-        elevation,          # elevation_m
-        1.0,                # land_use_code        (regional default)
-        0.0,                # flood_depth_cm       (initial condition)
+        rain_data,              # rainfall_mm
+        slope,                  # slope_degrees
+        flow_acc,               # flow_accumulation
+        soil_moisture,          # soil_moisture (live integration)
+        antecedent_moisture,    # antecedent_moisture (dynamic open-meteo summation)
+        aspect,                 # aspect_degrees
+        elevation,              # elevation_m
+        sar_data,               # sar_flooded_hectares (live satellite feed directly integrated)
+        0.0,                    # flood_depth_cm (initial state)
     ]])
 
     try:

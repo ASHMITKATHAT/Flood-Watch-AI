@@ -52,7 +52,7 @@ const TelemetryTerminal: React.FC = () => {
     };
 
     return (
-        <div className="absolute bottom-6 left-6 z-20 w-96 max-w-md bg-slate-900/80 backdrop-blur-md rounded-xl border border-[#414868] shadow-[0_4px_20px_rgba(0,0,0,0.3)] overflow-hidden flex flex-col pointer-events-auto">
+        <div className="w-full h-full min-h-[300px] bg-slate-900/80 backdrop-blur-md rounded-xl border border-[#414868] shadow-[0_4px_20px_rgba(0,0,0,0.3)] overflow-hidden flex flex-col pointer-events-auto">
             {/* Terminal Header */}
             <div className="flex items-center gap-2 px-3 py-2 border-b border-[#292e42] bg-[#1a1b26]/50">
                 <Terminal className="w-4 h-4 text-[#7aa2f7]" />

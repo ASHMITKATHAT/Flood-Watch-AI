@@ -25,19 +25,34 @@ import os
 import json as _json
 import logging
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
 # ──────────────────────────────────────────────
 # GEE Initialisation (fail-safe)
 # ──────────────────────────────────────────────
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = Path(__file__).resolve().parent
 _env_key_path = os.getenv("GEE_KEY_PATH", "")
-if _env_key_path and os.path.isabs(_env_key_path):
-    GEE_KEY_PATH = _env_key_path
-else:
-    # Always resolve relative to the project root
-    GEE_KEY_PATH = os.path.join(BASE_DIR, "data", "gee_key.json")
+
+# We try multiple common locations using pathlib to be absolutely sure we find the key
+_possible_paths = [
+    Path(_env_key_path) if _env_key_path and Path(_env_key_path).is_absolute() else None,
+    BASE_DIR / _env_key_path if _env_key_path else None,
+    BASE_DIR / "data" / "gee_key.json",
+    BASE_DIR.parent / "data" / "gee_key.json",
+    Path.cwd() / "backend" / "data" / "gee_key.json",
+]
+
+GEE_KEY_PATH = None
+for p in _possible_paths:
+    if p and p.exists():
+        GEE_KEY_PATH = p.resolve()
+        break
+
+if not GEE_KEY_PATH:
+    # Fallback to the default assumption to fail gracefully with a specific error message
+    GEE_KEY_PATH = BASE_DIR / "data" / "gee_key.json"
 
 _gee_ready = False
 
@@ -45,9 +60,9 @@ try:
     import ee
 
     print(f"[SAR-DEBUG] GEE_KEY_PATH resolved to: {GEE_KEY_PATH}")
-    print(f"[SAR-DEBUG] File exists: {os.path.isfile(GEE_KEY_PATH)}")
+    print(f"[SAR-DEBUG] File exists: {GEE_KEY_PATH.is_file() if GEE_KEY_PATH else False}")
 
-    if not os.path.exists(GEE_KEY_PATH):
+    if not GEE_KEY_PATH or not GEE_KEY_PATH.is_file():
         raise FileNotFoundError(f"Missing GEE Service Account Key at absolute path: {GEE_KEY_PATH}")
 
     # Read service account email from the key file
@@ -58,7 +73,7 @@ try:
 
     credentials = ee.ServiceAccountCredentials(
         email=_sa_email,
-        key_file=GEE_KEY_PATH,
+        key_file=str(GEE_KEY_PATH),
     )
     import socket
     socket.setdefaulttimeout(10)

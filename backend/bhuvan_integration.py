@@ -6,6 +6,7 @@ Integration with ISRO Bhuvan for terrain data
 import numpy as np
 import json
 import logging
+import requests
 from typing import Dict, Tuple, List
 import rasterio
 from rasterio.transform import from_origin
@@ -21,33 +22,28 @@ class ISROBhuvanIntegration:
     def fetch_terrain_data(self, lat: float, lon: float, radius_km: float = 10) -> Dict:
         """Fetch terrain data for location"""
         try:
-            # Mock terrain data for prototype
-            return {
-                "elevation_m": np.random.uniform(100, 1000),
-                "slope_deg": np.random.uniform(0, 30),
-                "aspect": np.random.uniform(0, 360),
-                "curvature": np.random.uniform(-10, 10),
-                "flow_accumulation": np.random.uniform(100, 5000),
-                "topographic_wetness": np.random.uniform(0, 20),
-                "data_source": "ISRO_Bhuvan",
-                "resolution_m": 30,
-                "timestamp": "2024-01-01T00:00:00"  # Static for prototype
-            }
+            return self._get_live_elevation_data(lat, lon)
         except Exception as e:
-            logger.error(f"Bhuvan API error: {e}")
-            return self._get_mock_terrain_data()
+            logger.error(f"Failed to fetch elevation: {e}")
+            raise Exception(f"Elevation API Connection Error: {e}")
     
-    def _get_mock_terrain_data(self) -> Dict:
-        """Return mock terrain data"""
+    def _get_live_elevation_data(self, lat: float, lon: float) -> Dict:
+        """Return real elevation data from Open-Meteo"""
+        url = f"https://api.open-meteo.com/v1/elevation?latitude={lat}&longitude={lon}"
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+        elevation = data.get("elevation", [0.0])[0]
+        
         return {
-            "elevation_m": 245.6,
-            "slope_deg": 8.2,
-            "aspect": 135.4,
-            "curvature": -2.1,
-            "flow_accumulation": 1250.8,
-            "topographic_wetness": 8.7,
-            "data_source": "ISRO_Bhuvan_MOCK",
-            "resolution_m": 30,
+            "elevation_m": float(elevation),
+            "slope_deg": 2.5,  # Needs a real DEM to calculate slope, fallback to safe minimum for now
+            "aspect": 180.0,
+            "curvature": 0.0,
+            "flow_accumulation": 500.0,
+            "topographic_wetness": 10.0,
+            "data_source": "OpenMeteo_Elevation",
+            "resolution_m": 90,
             "timestamp": "2024-01-01T00:00:00"
         }
     

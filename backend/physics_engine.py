@@ -32,8 +32,17 @@ import xgboost as xgb
 import lightgbm as lgb
 
 # TensorFlow imports with fallback
-TF_AVAILABLE = False
-print("Warning: TensorFlow imports bypassed to prevent boot-hanging on Windows.")
+try:
+    import tensorflow as tf
+    from tensorflow.keras.models import load_model, Sequential
+    from tensorflow.keras.layers import Input, Dense, BatchNormalization, Dropout
+    from tensorflow.keras.optimizers import Adam
+    from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
+    TF_AVAILABLE = True
+    print("TensorFlow successfully loaded.")
+except Exception as e:
+    TF_AVAILABLE = False
+    print(f"TensorFlow import failed: {e}")
 
 # Custom imports with fallbacks
 try:
@@ -281,6 +290,10 @@ class AdvancedFloodML:
     
     def _generate_synthetic_data(self, n_samples: int = 10000) -> pd.DataFrame:
         """Generate synthetic training data with realistic distributions"""
+        import os
+        if os.environ.get('FLASK_ENV') == 'production':
+            raise RuntimeError("CRITICAL ERROR: Synthetic data generation is strictly prohibited in the production environment.")
+        
         logger.info(f"Generating {n_samples} synthetic training samples")
         
         np.random.seed(42)
@@ -386,10 +399,15 @@ class AdvancedFloodML:
         model.fit(X_train, y_train)
         return model
     
-    def _train_neural_network(self, X_train: np.ndarray, y_train: np.ndarray) -> Union[Model, None]:
+    def _train_neural_network(self, X_train: np.ndarray, y_train: np.ndarray) -> Optional[Any]:
         """Train Neural Network model"""
         if not TF_AVAILABLE:
             return None
+        
+        from tensorflow.keras.models import Sequential
+        from tensorflow.keras.layers import Input, Dense, BatchNormalization, Dropout
+        from tensorflow.keras.optimizers import Adam
+        from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
         
         n_features = X_train.shape[1]
         
@@ -459,19 +477,22 @@ class AdvancedFloodML:
                 # Ensemble predictions
                 predictions = []
                 weights = []
-                if 'rf' in self.models and self.models['rf'] is not None:
-                    predictions.append(self.models['rf'].predict(X_test))
+                rf_model = self.models.get('rf')
+                if rf_model is not None:
+                    predictions.append(rf_model.predict(X_test))
                     weights.append(0.4)
-                if 'xgb' in self.models and self.models['xgb'] is not None:
-                    predictions.append(self.models['xgb'].predict(X_test))
+                xgb_model = self.models.get('xgb')
+                if xgb_model is not None:
+                    predictions.append(xgb_model.predict(X_test))
                     weights.append(0.3)
-                if 'lgb' in self.models and self.models['lgb'] is not None:
-                    predictions.append(self.models['lgb'].predict(X_test))
+                lgb_model = self.models.get('lgb')
+                if lgb_model is not None:
+                    predictions.append(lgb_model.predict(X_test))
                     weights.append(0.3)
                 
                 if predictions:
-                    weights = np.array(weights) / sum(weights)
-                    y_pred = sum(w * p for w, p in zip(weights, predictions))
+                    weights_arr = np.array(weights) / sum(weights)
+                    y_pred = sum(w * p for w, p in zip(weights_arr, predictions))
                 else:
                     continue
             elif name == 'nn' and TF_AVAILABLE:
@@ -501,25 +522,29 @@ class AdvancedFloodML:
     def _calculate_feature_importance(self, X_train: np.ndarray):
         """Calculate and store feature importance"""
         # Use Random Forest feature importance
-        if 'rf' in self.models and self.models['rf'] is not None:
-            importances = self.models['rf'].feature_importances_
-            self.feature_importance = dict(zip(self.feature_names, importances))
+        rf_model = self.models.get('rf')
+        if rf_model is not None:
+            importances = getattr(rf_model, 'feature_importances_', [])
+            self.feature_importance = dict(zip(getattr(self, 'feature_names', []), importances))
             
             # Sort by importance
             self.feature_importance = dict(sorted(
                 self.feature_importance.items(),
-                key=lambda x: x[1],
+                key=lambda x: float(x[1]),
                 reverse=True
             ))
             
             # Store in metadata
+            import itertools
+            top10 = dict(itertools.islice(self.feature_importance.items(), 10))
             self.metadata['feature_importance'] = {
-                k: float(v) for k, v in list(self.feature_importance.items())[:10]
+                k: float(v) for k, v in top10.items()
             }
             
             logger.info("Top 5 important features:")
-            for feature, importance in list(self.feature_importance.items())[:5]:
-                logger.info(f"  {feature}: {importance:.3f}")
+            top5 = list(itertools.islice(self.feature_importance.items(), 5))
+            for feature, importance in top5:
+                logger.info(f"  {feature}: {float(importance):.3f}")
     
     def predict(self, features: Dict[str, float]) -> PredictionResult:
         """
@@ -553,26 +578,29 @@ class AdvancedFloodML:
                 continue
         
         # Ensemble prediction (weighted average)
+        ensemble_pred_val = 0.0
         if predictions:
-            weights = self.metadata['ensemble_weights']
-            total_weight = 0
-            ensemble_pred = 0
+            weights_dict = self.metadata.get('ensemble_weights', {})
+            total_weight = 0.0
             
             for name, pred in predictions.items():
-                weight = weights.get(name, 0)
-                ensemble_pred += weight * pred
+                if isinstance(weights_dict, dict):
+                    weight = float(weights_dict.get(name, 0.0))
+                else:
+                    weight = 1.0
+                ensemble_pred_val += weight * float(pred)
                 total_weight += weight
             
             if total_weight > 0:
-                ensemble_pred /= total_weight
+                ensemble_pred_val /= total_weight
             else:
-                ensemble_pred = sum(predictions.values()) / len(predictions)
+                ensemble_pred_val = float(sum(predictions.values())) / max(1, len(predictions))
         else:
             # Fallback prediction
-            ensemble_pred = 50.0  # Default fallback
+            ensemble_pred_val = 50.0  # Default fallback
         
         # Calculate risk score (normalize water depth to 0-1)
-        water_depth_mm = max(0, ensemble_pred)
+        water_depth_mm = float(max(0.0, ensemble_pred_val))
         risk_score = self._calculate_risk_score(water_depth_mm, features)
         
         # Determine risk category

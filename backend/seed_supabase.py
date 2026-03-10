@@ -5,7 +5,13 @@ Populates the EQUINOX database with initial mock data.
 import neon_db as db
 
 
+import os
+
 def seed_database():
+    if os.environ.get('FLASK_ENV') == 'production':
+        print("CRITICAL EXCEPTION: Seeding mock database records is strictly prohibited in the production environment.")
+        return
+        
     try:
         print("Checking connection to Neon PostgreSQL...")
         

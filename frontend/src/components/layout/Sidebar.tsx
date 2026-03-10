@@ -78,7 +78,7 @@ const Sidebar: React.FC = () => {
     return (
         <aside
             className={`
-        flex flex-col h-screen bg-[#16161e]
+        flex flex-col h-screen bg-[#16161e] flex-shrink-0
         border-r border-[#292e42] transition-all duration-300 z-50
         ${collapsed ? 'w-[72px]' : 'w-[240px]'}
       `}
