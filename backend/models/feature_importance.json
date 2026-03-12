@@ -1,0 +1,18 @@
+{
+  "soil_type_factor": 0.5005542298305025,
+  "rainfall_mm": 0.13634630516050944,
+  "flow_accumulation": 0.06348017193667273,
+  "elevation_m": 0.06307566024410238,
+  "slope_deg": 0.04293557650027243,
+  "rainfall_24h": 0.039426431330704705,
+  "builtup_percentage": 0.026065063150932974,
+  "soil_saturation": 0.01785346108688853,
+  "water_distance_m": 0.014172234777457228,
+  "drainage_density": 0.014156119380531115,
+  "temperature_c": 0.014128412433080625,
+  "humidity_percent": 0.01386963077603611,
+  "ndvi": 0.01358293590944995,
+  "wind_speed": 0.013552577417166011,
+  "pressure_hpa": 0.013456982102779723,
+  "curvature": 0.013344207962913582
+}

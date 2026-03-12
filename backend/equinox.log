@@ -2473,3 +2473,1290 @@
 2026-03-12 08:37:34 | ERROR    | real_data_integration | OpenWeather API failed after retries: 
 2026-03-12 08:37:37 | ERROR    | real_data_integration | Error fetching NASA data: Cannot connect to host power.larc.nasa.gov:443 ssl:default [Temporary failure in name resolution]
 2026-03-12 08:37:37 | ERROR    | real_data_integration | Error fetching NASA data: Cannot connect to host power.larc.nasa.gov:443 ssl:default [Temporary failure in name resolution]
+2026-03-12 15:33:49 | WARNING  | physics_engine | Could not load models: No valid models found on disk.. Training new models...
+2026-03-12 15:33:49 | INFO     | physics_engine | Starting model training pipeline...
+2026-03-12 15:33:49 | INFO     | physics_engine | Generating 5000 synthetic training samples
+2026-03-12 15:33:49 | INFO     | physics_engine | Training Random Forest...
+2026-03-12 15:33:50 | INFO     | physics_engine | Training XGBoost...
+2026-03-12 15:37:53 | INFO     | physics_engine | Training LightGBM...
+2026-03-12 15:44:22 | INFO     | physics_engine | Training Neural Network...
+2026-03-12 15:44:24 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:25 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:25 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:26 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:26 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:26 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:26 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:26 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:27 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:27 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:28 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:29 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:30 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:31 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:34 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:36 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:40 | INFO     | physics_engine | Best model: nn  RMSE=16.49  R²=0.879
+2026-03-12 15:44:40 | INFO     | physics_engine | Top 5 features:
+2026-03-12 15:44:40 | INFO     | physics_engine |   soil_type_factor: 0.501
+2026-03-12 15:44:40 | INFO     | physics_engine |   rainfall_mm: 0.136
+2026-03-12 15:44:40 | INFO     | physics_engine |   flow_accumulation: 0.063
+2026-03-12 15:44:40 | INFO     | physics_engine |   elevation_m: 0.063
+2026-03-12 15:44:40 | INFO     | physics_engine |   slope_deg: 0.043
+2026-03-12 15:44:41 | WARNING  | absl | You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-03-12 15:44:41 | INFO     | physics_engine | Models saved to /mnt/c/FLOODWATCH_EQUINOX/backend/models
+2026-03-12 15:44:41 | INFO     | physics_engine | Model training completed successfully.
+2026-03-12 15:44:41 | INFO     | physics_engine | AdvancedFloodML v3.0.0 initialized
+2026-03-12 15:44:41 | INFO     | EQUINOX | ML Engine initialized — 4 model(s) loaded.
+2026-03-12 15:44:41 | INFO     | EQUINOX | Starting EQUINOX Flood Prediction System...
+2026-03-12 15:44:41 | INFO     | EQUINOX | ML Engine: 4 model(s) active
+2026-03-12 15:44:41 | INFO     | EQUINOX | API running at: http://localhost:5000
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /              → Root info
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/health    → Health check
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/villages  → All villages
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/predict   → Live ML prediction (lat/lng)
+2026-03-12 15:44:41 | INFO     | EQUINOX |   POST /api/predict   → Direct feature prediction
+2026-03-12 15:44:41 | INFO     | EQUINOX |   POST /api/predict/batch → Batch predictions
+2026-03-12 15:44:41 | INFO     | EQUINOX |   POST /api/alerts    → Create alert
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/active_alerts → Live active alerts
+2026-03-12 15:44:41 | INFO     | EQUINOX |   POST /api/reports   → Submit field report
+2026-03-12 15:44:41 | INFO     | EQUINOX |   POST /api/reports/submit → Civilian incident report
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/sensors   → Live sensor readings
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/telemetry → System log stream
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/terrain   → ISRO DEM terrain metrics
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/sar       → Sentinel-1 SAR inundation
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/grid-data → Map overlay grid
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/scenarios/live   → Live scenario data
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/scenarios/punjab → Punjab historical data
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/system/status    → System metrics
+2026-03-12 15:44:41 | INFO     | EQUINOX |   GET  /api/rainfall/<district> → District rainfall
+2026-03-12 15:44:41 | INFO     | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.75.116:5000
+2026-03-12 15:44:41 | INFO     | werkzeug | [33mPress CTRL+C to quit[0m
+2026-03-12 15:45:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:45:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:45:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:45:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:45:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:45:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:45:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:45:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:45:10 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:45:10 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:45:11 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:45:11 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:45:11 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:45:11 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:45:11 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:45:11] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:46:05 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:46:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:46:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:46:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:46:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:46:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:46:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:46:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:46:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:46:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:46:43 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:46:43 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:46:43 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:46:44 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:44 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:44 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:46:44 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:44] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:46:44 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:46:44 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:46:44 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:46:45 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:45 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:45 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:46:45 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:45] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:46:45 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 15:46:45 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:46:46 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:46] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 15:46:46 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:46:46 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:46] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 15:46:46 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:46:46 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:46:46 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:46:46 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:46:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:47 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:46:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:47 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:46:47 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:47] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:46:47 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:46:47 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:46:48 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:46:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:48 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:46:48 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:48] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:46:48 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:46:49 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:46:49 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:46:50 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:50 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:50 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:46:50 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:50] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:46:50 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:46:50 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:50] "GET /api/sar?lat=26.9124&lng=75.7873&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 15:46:50 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:46:50 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:46:51 | WARNING  | physics_engine | Missing features (using defaults): ['rainfall_24h', 'humidity_percent', 'temperature_c', 'wind_speed', 'pressure_hpa', 'slope_deg', 'curvature', 'soil_saturation', 'ndvi', 'builtup_percentage', 'water_distance_m', 'soil_type_factor', 'drainage_density']
+2026-03-12 15:46:51 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:51] "GET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1" 200 -
+2026-03-12 15:46:51 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:51 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:51 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:46:51 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:51] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:46:51 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 15:46:51 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:46:51 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:46:52 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:46:52 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:52 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:46:52 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:46:53 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:53] "GET /api/sar?lat=26.9124&lng=75.7873&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 15:46:56 | WARNING  | physics_engine | Missing features (using defaults): ['rainfall_24h', 'humidity_percent', 'temperature_c', 'wind_speed', 'pressure_hpa', 'slope_deg', 'curvature', 'soil_saturation', 'ndvi', 'builtup_percentage', 'water_distance_m', 'soil_type_factor', 'drainage_density']
+2026-03-12 15:46:56 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:46:56] "GET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1" 200 -
+2026-03-12 15:47:05 | INFO     | EQUINOX | [/api/predict GET] lat=26.1070559, lng=74.3128424
+2026-03-12 15:47:05 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:47:05] "GET /api/terrain?lat=26.107056&lng=74.312842 HTTP/1.1" 200 -
+2026-03-12 15:47:05 | INFO     | real_data_integration | Fetching all data for (26.1070559, 74.3128424)
+2026-03-12 15:47:06 | INFO     | real_data_integration | OpenWeather data fetched: 24.99°C
+2026-03-12 15:47:06 | INFO     | real_data_integration | ISRO LULC data fetched: Water Body
+2026-03-12 15:47:06 | INFO     | real_data_integration | NASA_POWER data fetched: 0.5mm
+2026-03-12 15:47:07 | INFO     | real_data_integration | NASA_POWER data fetched: 0.5mm
+2026-03-12 15:47:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:47:10 | WARNING  | physics_engine | Missing features (using defaults): ['rainfall_24h', 'humidity_percent', 'temperature_c', 'wind_speed', 'pressure_hpa', 'slope_deg', 'curvature', 'soil_saturation', 'ndvi', 'builtup_percentage', 'water_distance_m', 'soil_type_factor', 'drainage_density']
+2026-03-12 15:47:11 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:47:11] "GET /api/predict?lat=26.1070559&lng=74.3128424 HTTP/1.1" 200 -
+2026-03-12 15:47:12 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:47:12] "GET /api/sar?lat=26.1070559&lng=74.3128424&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 15:47:15 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:47:16 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:47:16 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:47:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:47:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:47:17 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:47:17 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:47:17] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:47:17 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:47:17 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:47:18 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:47:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:47:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:47:18 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:47:18 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:47:18] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:47:45 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:47:46 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:47:46 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:47:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:47:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:47:47 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:47:47 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:47:47] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:47:47 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:47:47 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:47:47 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:47:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:47:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:47:48 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:47:48 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:47:48] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:48:15 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:48:16 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:48:16 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:48:16 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:48:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:48:17 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:48:17 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:48:17] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:48:17 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:48:17 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:48:17 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:48:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:48:19 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:48:19 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:48:19 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:48:19] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:48:45 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:48:46 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:48:46 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:48:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:48:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:48:47 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:48:47 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:48:47] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:48:47 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:48:47 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:48:47 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:48:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:48:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:48:48 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:48:48 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:48:48] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:49:15 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:49:16 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:49:16 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:49:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:49:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:49:17 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:49:17 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:49:17] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:49:17 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:49:17 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:49:17 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:49:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:49:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:49:18 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:49:18 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:49:18] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:49:45 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:49:46 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:49:46 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:49:46 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:49:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:49:47 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:49:47 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:49:47] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:49:47 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:49:47 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:49:47 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:49:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:49:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:49:48 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:49:48 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:49:48] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:50:15 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:50:15 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:50:16 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:50:16 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:50:16 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:50:16 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:50:16 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:50:16] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:50:16 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:50:17 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:50:17 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:50:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:50:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:50:18 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:50:18 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:50:18] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:50:45 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:50:45 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:50:46 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:50:46 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:50:46 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:50:46 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:50:46 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:50:46] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:50:46 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:50:47 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:50:47 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:50:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:50:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:50:48 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:50:48 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:50:48] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:51:16 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:51:16 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:51:16 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:51:16 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:51:16 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:51:16 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:51:16 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:51:16] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:51:16 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:51:17 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:51:17 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:51:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:51:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:51:18 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:51:18 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:51:18] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:51:28 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:51:28] "GET /api/terrain?lat=26.639326&lng=84.899014 HTTP/1.1" 200 -
+2026-03-12 15:51:29 | INFO     | EQUINOX | [/api/predict GET] lat=26.6393261, lng=84.8990136
+2026-03-12 15:51:29 | INFO     | real_data_integration | Fetching all data for (26.6393261, 84.8990136)
+2026-03-12 15:51:29 | INFO     | real_data_integration | OpenWeather data fetched: 26.41°C
+2026-03-12 15:51:29 | INFO     | real_data_integration | ISRO LULC data fetched: Water Body
+2026-03-12 15:51:31 | INFO     | real_data_integration | NASA_POWER data fetched: 41.0mm
+2026-03-12 15:51:31 | INFO     | real_data_integration | NASA_POWER data fetched: 41.0mm
+2026-03-12 15:51:31 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:51:36 | WARNING  | physics_engine | Missing features (using defaults): ['rainfall_24h', 'humidity_percent', 'temperature_c', 'wind_speed', 'pressure_hpa', 'slope_deg', 'curvature', 'soil_saturation', 'ndvi', 'builtup_percentage', 'water_distance_m', 'soil_type_factor', 'drainage_density']
+2026-03-12 15:51:36 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:51:36] "GET /api/predict?lat=26.6393261&lng=84.8990136 HTTP/1.1" 200 -
+2026-03-12 15:51:37 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:51:37] "GET /api/sar?lat=26.6393261&lng=84.8990136&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 15:51:46 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:51:46 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:51:46 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:51:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:51:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:51:47 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:51:47 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:51:47] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:51:47 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:51:47 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:51:48 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:51:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:51:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:51:48 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:51:48 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:51:48] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:52:16 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:52:16 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:52:17 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:52:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:52:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:52:17 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:52:17 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:52:17] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:52:17 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:52:17 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:52:17 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:52:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:52:19 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:52:19 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:52:19 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:52:19] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:52:46 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:52:46 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:52:46 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:52:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:52:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:52:47 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:52:47 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:52:47] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:52:47 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:52:48 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:52:48 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:52:49 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:52:49 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:52:49 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:52:49 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:52:49] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:53:16 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:53:16 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:53:16 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:53:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:53:18 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:53:18 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:53:18 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:53:18] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:53:18 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:53:18 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:53:18 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:53:19 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:53:19 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:53:19 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:53:19 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:53:19] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:53:46 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:53:46 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:53:46 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:53:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:53:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:53:47 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:53:47 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:53:47] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:53:47 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:53:48 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:53:48 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:53:49 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:53:49 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:53:49 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:53:49 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:53:49] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:55:05 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:55:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:55:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:55:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:55:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:55:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:55:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:55:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:55:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:55:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:55:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:55:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:55:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:55:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:55:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:55:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:56:05 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:56:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:56:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:56:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:56:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:56:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:56:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:56:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:56:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:56:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:56:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:56:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:56:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:56:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:56:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:56:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:57:05 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:57:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:57:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:57:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:57:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:57:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:57:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:57:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:57:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:57:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:57:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:57:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:57:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:57:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:57:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:57:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:58:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:58:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:58:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:58:06 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:58:06 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:58:06 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:58:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:58:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:58:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:58:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:58:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:58:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:58:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:58:08 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:58:08 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:58:08] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:59:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:59:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:59:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:59:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:59:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:59:08 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:59:08 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:59:08] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 15:59:08 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 15:59:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 15:59:09 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 15:59:10 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:59:10 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 15:59:10 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 15:59:10 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 15:59:10] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:00:10 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:00:10 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:00:10 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:00:12 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:00:12 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:00:12 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:00:12 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:00:12] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:00:12 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:00:12 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:00:12 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:00:13 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:00:12 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:00:12 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:00:12 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:00:12] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:01:09 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:01:10 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:01:10 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:01:11 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:01:11 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:01:11 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:01:11 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:01:11] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:01:11 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:01:11 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:01:11 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:01:13 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:01:13 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:01:13 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:01:13 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:01:13] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:02:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:02:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:02:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:02:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:02:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:02:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:02:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:02:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:02:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:02:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:02:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:02:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:02:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:02:08 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:02:08 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:02:08] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:03:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:03:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:03:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:03:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:03:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:03:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:03:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:03:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:03:08 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:03:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:03:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:03:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:03:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:03:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:03:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:03:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:04:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:04:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:04:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:04:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:04:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:04:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:04:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:04:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:04:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:04:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:04:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:04:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:04:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:04:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:04:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:04:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:05:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:05:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:05:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:05:06 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:05:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:05:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:05:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:05:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:05:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:05:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:05:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:05:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:05:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:05:08 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:05:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:05:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:06:05 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:06:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:06:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:06:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:06:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:06:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:06:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:06:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:06:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:06:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:06:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:06:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:06:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:06:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:06:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:06:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:07:05 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:07:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:07:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:07:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:07:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:07:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:07:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:07:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:07:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:07:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:07:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:07:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:07:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:07:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:07:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:07:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:08:05 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:08:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:08:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:08:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:08:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:08:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:08:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:08:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:08:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:08:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:08:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:08:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:08:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:08:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:08:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:08:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:09:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:09:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:09:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:09:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:09:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:09:08 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:09:08 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:09:08] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:09:08 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:09:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:09:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:09:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:09:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:09:08 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:09:08 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:09:08] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:10:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:10:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:10:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:10:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:10:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:10:08 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:10:08 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:10:08] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:10:08 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:10:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:10:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:10:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:10:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:10:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:10:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:10:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:11:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:11:06 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:11:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:11:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:11:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:11:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:11:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:11:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:11:08 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:11:08 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:11:09 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:11:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:11:10 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:11:10 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:11:10 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:11:10] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:12:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:12:06 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:12:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:12:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:12:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:12:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:12:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:12:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:12:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:12:07 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:12:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:12:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:12:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:12:08 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:12:08 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:12:08] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:13:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:13:06 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:13:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:13:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:13:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:13:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:13:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:13:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:13:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:13:08 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:13:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:13:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:13:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:13:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:13:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:13:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:14:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:14:06 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:14:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:14:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:14:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:14:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:14:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:14:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:14:08 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:14:08 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:14:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:14:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:14:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:14:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:14:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:14:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:15:14 | ERROR    | physics_engine | Error loading model nn: Could not deserialize 'keras.metrics.mse' because it is not a KerasSaveable subclass
+2026-03-12 16:15:14 | INFO     | physics_engine | ML models loaded from storage
+2026-03-12 16:15:14 | INFO     | physics_engine | AdvancedFloodML v3.0.0 initialized
+2026-03-12 16:15:14 | INFO     | EQUINOX | ML Engine initialized — 4 model(s) loaded.
+2026-03-12 16:15:14 | INFO     | EQUINOX | Starting EQUINOX Flood Prediction System...
+2026-03-12 16:15:14 | INFO     | EQUINOX | ML Engine: 4 model(s) active
+2026-03-12 16:15:14 | INFO     | EQUINOX | API running at: http://localhost:5000
+2026-03-12 16:15:14 | INFO     | EQUINOX |   GET  /              → Root info
+2026-03-12 16:15:14 | INFO     | EQUINOX |   GET  /api/health    → Health check
+2026-03-12 16:15:14 | INFO     | EQUINOX |   GET  /api/villages  → All villages
+2026-03-12 16:15:14 | INFO     | EQUINOX |   GET  /api/predict   → Live ML prediction (lat/lng)
+2026-03-12 16:15:15 | INFO     | EQUINOX |   POST /api/predict   → Direct feature prediction
+2026-03-12 16:15:15 | INFO     | EQUINOX |   POST /api/predict/batch → Batch predictions
+2026-03-12 16:15:15 | INFO     | EQUINOX |   POST /api/alerts    → Create alert
+2026-03-12 16:15:15 | INFO     | EQUINOX |   GET  /api/active_alerts → Live active alerts
+2026-03-12 16:15:15 | INFO     | EQUINOX |   POST /api/reports   → Submit field report
+2026-03-12 16:15:15 | INFO     | EQUINOX |   POST /api/reports/submit → Civilian incident report
+2026-03-12 16:15:15 | INFO     | EQUINOX |   GET  /api/sensors   → Live sensor readings
+2026-03-12 16:15:15 | INFO     | EQUINOX |   GET  /api/telemetry → System log stream
+2026-03-12 16:15:15 | INFO     | EQUINOX |   GET  /api/terrain   → ISRO DEM terrain metrics
+2026-03-12 16:15:15 | INFO     | EQUINOX |   GET  /api/sar       → Sentinel-1 SAR inundation
+2026-03-12 16:15:15 | INFO     | EQUINOX |   GET  /api/grid-data → Map overlay grid
+2026-03-12 16:15:15 | INFO     | EQUINOX |   GET  /api/scenarios/live   → Live scenario data
+2026-03-12 16:15:15 | INFO     | EQUINOX |   GET  /api/scenarios/punjab → Punjab historical data
+2026-03-12 16:15:15 | INFO     | EQUINOX |   GET  /api/system/status    → System metrics
+2026-03-12 16:15:15 | INFO     | EQUINOX |   GET  /api/rainfall/<district> → District rainfall
+2026-03-12 16:15:15 | INFO     | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.75.116:5000
+2026-03-12 16:15:15 | INFO     | werkzeug | [33mPress CTRL+C to quit[0m
+2026-03-12 16:15:16 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:16 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:16 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:17 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:17 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:17] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:15:26 | ERROR    | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:26] Request timed out: TimeoutError('timed out')
+2026-03-12 16:15:33 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:33 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:34 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:34 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:34 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:34 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:34 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:34] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:15:34 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:35 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:35 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:36 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:36 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:36 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:36 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:36] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:15:36 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:36 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 16:15:36 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:36] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 16:15:36 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:36 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:36 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 16:15:36 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:36] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 16:15:36 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:36 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:36 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:36 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 16:15:36 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:36 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:36 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:36] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 16:15:36 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:36] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 16:15:36 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:36 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:37 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:37 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:37 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:37 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:37 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:37 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:37 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:37 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:37 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:37 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:37 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:37 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:37] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:15:37 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:37 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:37 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:38 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:38 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:40 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:40] "GET /api/sar?lat=26.9124&lng=75.7873&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 16:15:40 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:40] "GET /api/sar?lat=26.9124&lng=75.7873&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 16:15:42 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:15:42 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:42] "[31m[1mGET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1[0m" 400 -
+2026-03-12 16:15:44 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:44] "GET /api/sar?lat=26.9124&lng=75.7873&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 16:15:46 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:46 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:46 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:46] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:15:46 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:46 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:46 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:46 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:46 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:46 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:46 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:46] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:15:46 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:46 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:46 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:47 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:47 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:47 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:47 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:47] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:15:47 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:47 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:48 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:48 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:48 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:48] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:15:48 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:49 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:49 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:49 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:49 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:49 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:49 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:49] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:15:50 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:15:50 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:50] "[31m[1mGET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1[0m" 400 -
+2026-03-12 16:15:52 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:52] "GET /api/sar?lat=26.9124&lng=75.7873&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 16:15:52 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:15:52 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:52] "[31m[1mGET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1[0m" 400 -
+2026-03-12 16:15:52 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 16:15:52 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:15:52 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:15:53 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:15:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:15:53 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:15:57 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:15:57 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:15:57] "[31m[1mGET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1[0m" 400 -
+2026-03-12 16:16:49 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:16:49 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:16:49] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 16:16:49 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:16:49] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 16:16:49 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 16:16:49 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:16:49 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:16:50 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:16:50 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:16:50 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:16:50 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:51 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:51 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:16:51 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:16:51] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:16:51 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:16:51 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:51 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:51 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:16:51 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:16:51 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:16:52 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:52 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:52 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:16:52 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:16:52] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:16:52 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:16:52 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:16:52 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:16:53 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:16:53] "GET /api/sar?lat=26.9124&lng=75.7873&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 16:16:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:53 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:16:53 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:16:53] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:16:53 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:16:53 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:16:54 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:16:54 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:54 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:54 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:16:54 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:16:54] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:16:56 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:16:56] "GET /api/sar?lat=26.9124&lng=75.7873&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 16:16:57 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:16:57 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:16:57] "[31m[1mGET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1[0m" 400 -
+2026-03-12 16:16:57 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 16:16:57 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:16:58 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:16:58 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:16:58 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:59 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:16:59 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:17:06 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:17:06 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:06] "[31m[1mGET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1[0m" 400 -
+2026-03-12 16:17:19 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:17:19 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:17:20 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:20 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:20 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:17:20 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:17:20 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:20] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:17:20 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:17:21 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:17:21 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:17:21 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:21] "GET /api/terrain?lat=26.915458&lng=75.818982 HTTP/1.1" 200 -
+2026-03-12 16:17:21 | INFO     | EQUINOX | [/api/predict GET] lat=26.9154576, lng=75.8189817
+2026-03-12 16:17:21 | INFO     | real_data_integration | Fetching all data for (26.9154576, 75.8189817)
+2026-03-12 16:17:22 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:22 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:22 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:17:22 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:22] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:17:22 | INFO     | real_data_integration | OpenWeather data fetched: 24.2°C
+2026-03-12 16:17:22 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:17:23 | INFO     | real_data_integration | NASA_POWER data fetched: 43.6mm
+2026-03-12 16:17:23 | INFO     | real_data_integration | NASA_POWER data fetched: 43.6mm
+2026-03-12 16:17:23 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:17:27 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:17:27 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:27] "[31m[1mGET /api/predict?lat=26.9154576&lng=75.8189817 HTTP/1.1[0m" 400 -
+2026-03-12 16:17:27 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:27] "GET /api/sar?lat=26.9154576&lng=75.8189817&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 16:17:50 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:17:51 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:17:51 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:17:51 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:17:51 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:51] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 16:17:51 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:51] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 16:17:51 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 16:17:51 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:17:51 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:17:52 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:17:52 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:17:52 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:17:52 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:52 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:52 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:17:52 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:52] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:17:52 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:53 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:17:53 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:53] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:17:53 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:17:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:53 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:17:53 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:17:53 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:17:54 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:54 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:54 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:17:54 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:54] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:17:54 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:17:54 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:17:54 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:17:55 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:55 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:55 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:17:55 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:55] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:17:55 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:17:55 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:17:56 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:17:56 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:56 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:56 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:17:56 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:56] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:17:58 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:58] "GET /api/terrain?lat=26.912400&lng=75.787300 HTTP/1.1" 200 -
+2026-03-12 16:17:58 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:17:58 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:58] "[31m[1mGET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1[0m" 400 -
+2026-03-12 16:17:58 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 16:17:58 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:17:58 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:17:58] "GET /api/sar?lat=26.9124&lng=75.7873&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 16:17:58 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:17:59 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:17:59 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:59 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:17:59 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:18:02 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:18:02 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:18:02] "[31m[1mGET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1[0m" 400 -
+2026-03-12 16:18:02 | INFO     | EQUINOX | [/api/predict GET] lat=26.9124, lng=75.7873
+2026-03-12 16:18:02 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:18:02 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:18:02 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:18:02 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:18:03 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:18:03 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:18:04 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:18:04] "GET /api/sar?lat=26.9124&lng=75.7873&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 16:18:06 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:18:06 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:18:06] "[31m[1mGET /api/predict?lat=26.9124&lng=75.7873 HTTP/1.1[0m" 400 -
+2026-03-12 16:18:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:18:07] "GET /api/terrain?lat=26.107056&lng=74.312842 HTTP/1.1" 200 -
+2026-03-12 16:18:07 | INFO     | EQUINOX | [/api/predict GET] lat=26.1070559, lng=74.3128424
+2026-03-12 16:18:07 | INFO     | real_data_integration | Fetching all data for (26.1070559, 74.3128424)
+2026-03-12 16:18:07 | INFO     | real_data_integration | OpenWeather data fetched: 24.99°C
+2026-03-12 16:18:08 | INFO     | real_data_integration | ISRO LULC data fetched: Water Body
+2026-03-12 16:18:09 | INFO     | real_data_integration | NASA_POWER data fetched: 0.5mm
+2026-03-12 16:18:09 | INFO     | real_data_integration | NASA_POWER data fetched: 0.5mm
+2026-03-12 16:18:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:18:11 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:18:11] "GET /api/sar?lat=26.1070559&lng=74.3128424&radius_km=5 HTTP/1.1" 200 -
+2026-03-12 16:18:14 | WARNING  | EQUINOX | [/api/predict] Bad input: X has 4 features, but RobustScaler is expecting 16 features as input.
+2026-03-12 16:18:14 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:18:14] "[31m[1mGET /api/predict?lat=26.1070559&lng=74.3128424 HTTP/1.1[0m" 400 -
+2026-03-12 16:18:21 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:18:21 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:18:22 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:18:22 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:18:22 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:18:22 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:18:22 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:18:22] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:18:22 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:18:23 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:18:23 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:18:23 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:18:24 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:18:24 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:18:24 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:18:24] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:18:52 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:18:52 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:18:52 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:18:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:18:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:18:53 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:18:53 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:18:53] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:18:53 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:18:54 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:18:54 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:18:55 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:18:55 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:18:55 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:18:55 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:18:55] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:19:22 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:19:22 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:19:22 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:19:23 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:19:23 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:19:23 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:19:23 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:19:23] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:19:23 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:19:24 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:19:24 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:19:25 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:19:25 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:19:25 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:19:25 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:19:25] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:19:52 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:19:52 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:19:52 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:19:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:19:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:19:53 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:19:53 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:19:53] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:19:53 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:19:54 | INFO     | real_data_integration | OpenWeather data fetched: 24.92°C
+2026-03-12 16:19:54 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:19:55 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:19:55 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:19:55 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:19:55 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:19:55] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:20:22 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:20:22 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:20:22 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:20:23 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:20:23 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:20:23 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:20:23 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:20:23] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:20:23 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:20:23 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:20:23 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:20:24 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:20:24 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:20:24 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:20:24 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:20:24] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:20:52 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:20:52 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:20:52 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:20:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:20:53 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:20:53 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:20:53 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:20:53] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:20:53 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:20:53 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:20:53 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:20:54 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:20:54 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:20:54 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:20:54 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:20:54] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:22:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:22:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:22:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:22:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:22:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:22:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:22:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:22:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:22:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:22:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:22:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:22:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:22:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:22:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:22:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:22:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:23:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:23:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:23:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:23:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:23:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:23:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:23:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:23:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:23:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:23:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:23:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:23:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:23:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:23:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:23:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:23:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:24:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:24:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:24:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:24:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:24:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:24:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:24:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:24:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:24:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:24:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:24:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:24:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:24:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:24:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:24:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:24:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:25:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:25:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:25:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:25:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:25:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:25:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:25:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:25:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:25:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:25:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:25:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:25:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:25:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:25:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:25:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:25:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:26:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:26:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:26:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:26:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:26:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:26:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:26:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:26:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:26:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:26:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:26:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:26:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:26:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:26:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:26:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:26:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:27:05 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:27:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:27:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:27:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:27:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:27:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:27:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:27:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:27:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:27:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:27:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:27:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:27:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:27:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:27:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:27:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:28:05 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:28:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:28:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:28:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:28:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:28:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:28:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:28:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:28:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:28:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:28:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:28:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:28:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:28:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:28:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:28:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:28:47 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:28:47 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:28:47 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:28:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:28:48 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:28:48 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:28:48 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:28:48] "GET /api/grid-data?lat=26.9124&lng=75.7873 HTTP/1.1" 200 -
+2026-03-12 16:29:05 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:29:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:29:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:29:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:29:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:29:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:29:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:29:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:29:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:29:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:29:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:29:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:29:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:29:08 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:29:08 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:29:08] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 22:00:00 | ERROR    | physics_engine | Error loading model nn: Could not deserialize 'keras.metrics.mse' because it is not a KerasSaveable subclass
+2026-03-12 22:00:00 | INFO     | physics_engine | ML models loaded from storage
+2026-03-12 22:00:00 | INFO     | physics_engine | AdvancedFloodML v3.0.0 initialized
+2026-03-12 22:00:00 | INFO     | EQUINOX | ML Engine initialized — 4 model(s) loaded.
+2026-03-12 22:00:00 | INFO     | EQUINOX | Starting EQUINOX Flood Prediction System...
+2026-03-12 22:00:00 | INFO     | EQUINOX | ML Engine: 4 model(s) active
+2026-03-12 22:00:00 | INFO     | EQUINOX | API running at: http://localhost:5000
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /              → Root info
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/health    → Health check
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/villages  → All villages
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/predict   → Live ML prediction (lat/lng)
+2026-03-12 22:00:00 | INFO     | EQUINOX |   POST /api/predict   → Direct feature prediction
+2026-03-12 22:00:00 | INFO     | EQUINOX |   POST /api/predict/batch → Batch predictions
+2026-03-12 22:00:00 | INFO     | EQUINOX |   POST /api/alerts    → Create alert
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/active_alerts → Live active alerts
+2026-03-12 22:00:00 | INFO     | EQUINOX |   POST /api/reports   → Submit field report
+2026-03-12 22:00:00 | INFO     | EQUINOX |   POST /api/reports/submit → Civilian incident report
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/sensors   → Live sensor readings
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/telemetry → System log stream
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/terrain   → ISRO DEM terrain metrics
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/sar       → Sentinel-1 SAR inundation
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/grid-data → Map overlay grid
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/scenarios/live   → Live scenario data
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/scenarios/punjab → Punjab historical data
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/system/status    → System metrics
+2026-03-12 22:00:00 | INFO     | EQUINOX |   GET  /api/rainfall/<district> → District rainfall
+2026-03-12 22:00:00 | INFO     | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.230.197.121:5000
+2026-03-12 22:00:00 | INFO     | werkzeug | [33mPress CTRL+C to quit[0m
+2026-03-12 16:30:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:30:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:30:07 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:30:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:30:16 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:30:16 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:30:16 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:30:16] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:30:16 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:30:16 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:30:16 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:30:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:30:17 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:30:17 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:30:17 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:30:17] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 22:00:51 | ERROR    | physics_engine | Error loading model nn: Could not deserialize 'keras.metrics.mse' because it is not a KerasSaveable subclass
+2026-03-12 22:00:51 | INFO     | physics_engine | ML models loaded from storage
+2026-03-12 22:00:51 | INFO     | physics_engine | AdvancedFloodML v3.0.0 initialized
+2026-03-12 22:00:51 | INFO     | EQUINOX | ML Engine initialized — 4 model(s) loaded.
+2026-03-12 22:00:51 | INFO     | EQUINOX | Starting EQUINOX Flood Prediction System...
+2026-03-12 22:00:51 | INFO     | EQUINOX | ML Engine: 4 model(s) active
+2026-03-12 22:00:51 | INFO     | EQUINOX | API running at: http://localhost:5000
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /              → Root info
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/health    → Health check
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/villages  → All villages
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/predict   → Live ML prediction (lat/lng)
+2026-03-12 22:00:51 | INFO     | EQUINOX |   POST /api/predict   → Direct feature prediction
+2026-03-12 22:00:51 | INFO     | EQUINOX |   POST /api/predict/batch → Batch predictions
+2026-03-12 22:00:51 | INFO     | EQUINOX |   POST /api/alerts    → Create alert
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/active_alerts → Live active alerts
+2026-03-12 22:00:51 | INFO     | EQUINOX |   POST /api/reports   → Submit field report
+2026-03-12 22:00:51 | INFO     | EQUINOX |   POST /api/reports/submit → Civilian incident report
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/sensors   → Live sensor readings
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/telemetry → System log stream
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/terrain   → ISRO DEM terrain metrics
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/sar       → Sentinel-1 SAR inundation
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/grid-data → Map overlay grid
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/scenarios/live   → Live scenario data
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/scenarios/punjab → Punjab historical data
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/system/status    → System metrics
+2026-03-12 22:00:51 | INFO     | EQUINOX |   GET  /api/rainfall/<district> → District rainfall
+2026-03-12 22:00:51 | INFO     | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.230.197.121:5000
+2026-03-12 22:00:51 | INFO     | werkzeug | [33mPress CTRL+C to quit[0m
+2026-03-12 16:31:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:31:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:31:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:31:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:31:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:31:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:31:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:31:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:31:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:31:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:31:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:31:08 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:31:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:31:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:31:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:31:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:32:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:32:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:32:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:32:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:32:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:32:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:32:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:32:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 16:32:08 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 16:32:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 16:32:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 16:32:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:32:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 16:32:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 16:32:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 16:32:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 22:02:50 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 22:02:50] "GET /api/health HTTP/1.1" 200 -
+2026-03-12 22:03:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 22:03:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 22:03:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 22:03:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 22:03:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 22:03:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 22:03:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 22:03:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 22:03:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 22:03:07 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 22:03:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 22:03:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 22:03:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 22:03:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 22:03:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 22:03:09] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 22:03:37 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 22:03:38 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 22:03:38 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 22:03:39 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 22:03:39 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 22:03:39 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 22:03:39 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 22:03:39] "GET /api/grid-data?lat=26.9124&lng=75.7873 HTTP/1.1" 200 -
+2026-03-12 22:04:06 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 22:04:06 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 22:04:06 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 22:04:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 22:04:07 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 22:04:07 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 22:04:07 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 22:04:07] "GET /api/active_alerts HTTP/1.1" 200 -
+2026-03-12 22:04:07 | INFO     | real_data_integration | Fetching all data for (26.9124, 75.7873)
+2026-03-12 22:04:08 | INFO     | real_data_integration | OpenWeather data fetched: 25.11°C
+2026-03-12 22:04:08 | INFO     | real_data_integration | ISRO LULC data fetched: Forest/Vegetation
+2026-03-12 22:04:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 22:04:09 | INFO     | real_data_integration | NASA_POWER data fetched: 1.0mm
+2026-03-12 22:04:09 | INFO     | real_data_integration | All data fetched successfully
+2026-03-12 22:04:09 | INFO     | werkzeug | 127.0.0.1 - - [12/Mar/2026 22:04:09] "GET /api/active_alerts HTTP/1.1" 200 -

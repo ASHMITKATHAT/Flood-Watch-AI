@@ -46,3 +46,6 @@ backend/models/*.h5
 logs/
 .env
 gee_key.json
+# Ignore massive 100MB+ DEM rasters generated locally
+backend/data/dem/*.tif
+backend/data/dem/srtm_tiles/

@@ -107,17 +107,17 @@ class TopographyEngine:
         target_x, target_y = transformer.transform(raw_x, raw_y)
 
         # 4. Debugging Logs (Pre-sampling)
-        print(f"\n[TOPOGRAPHY DEBUG] Original Lat/Lng: ({lat}, {lng})")
-        print(f"[TOPOGRAPHY DEBUG] Raster Native CRS: {native_crs}")
-        print(f"[TOPOGRAPHY DEBUG] Transformed X/Y: ({target_x}, {target_y})")
+        # print(f"\n[TOPOGRAPHY DEBUG] Original Lat/Lng: ({lat}, {lng})")
+        # print(f"[TOPOGRAPHY DEBUG] Raster Native CRS: {native_crs}")
+        # print(f"[TOPOGRAPHY DEBUG] Transformed X/Y: ({target_x}, {target_y})")
 
         # 3. Strict Bounding Box Validation against raster extent
         bounds = dem_ds.bounds
         if not (bounds.left <= target_x <= bounds.right and bounds.bottom <= target_y <= bounds.top):
-            print(f"[TOPOGRAPHY DEBUG] Bounds FAIL: ({target_x:.4f}, {target_y:.4f}) outside raster {bounds}")
+            # print(f"[TOPOGRAPHY DEBUG] Bounds FAIL: ({target_x:.4f}, {target_y:.4f}) outside raster {bounds}")
             return {"error": "Outside coverage area"}
 
-        print("[TOPOGRAPHY DEBUG] Bounds validation: PASS")
+        # print("[TOPOGRAPHY DEBUG] Bounds validation: PASS")
 
         # Sample all valid datasets
         for key in ["elevation", "slope", "aspect", "flow_accumulation"]:
@@ -137,11 +137,12 @@ class TopographyEngine:
                         val = None
                         
                     results[key + ("_m" if key == "elevation" else "_degrees" if key in ("slope", "aspect") else "")] = val
-                    print(f"[TOPOGRAPHY DEBUG] Sampled '{key}': {val}")
+                    # print(f"[TOPOGRAPHY DEBUG] Sampled '{key}': {val}")
                 else:
-                    print(f"[TOPOGRAPHY DEBUG] Sampled '{key}': None (No data returned)")
+                    pass # print(f"[TOPOGRAPHY DEBUG] Sampled '{key}': None (No data returned)")
             except Exception as e:
-                print(f"[TOPOGRAPHY DEBUG] Sampling error for '{key}': {e}")
+                # print(f"[TOPOGRAPHY DEBUG] Sampling error for '{key}': {e}")
+                pass
                 
         return results
 

@@ -162,7 +162,7 @@ def _generate_grid(
     scenario: str = "live",
     rainfall: float = 0.0,
 ) -> list[dict]:
-    """Generate topographical pixel grid data for map overlay."""
+    """Generate topographical pixel grid data for map overlay using real DEM data."""
     cells = []
     lat_per_m = 1 / 111_320.0
     lng_per_m = 1 / (111_320.0 * math.cos(math.radians(center_lat)))
@@ -172,17 +172,25 @@ def _generate_grid(
             lat = center_lat + (row - grid_size / 2) * cell_size_m * lat_per_m
             lng = center_lng + (col - grid_size / 2) * cell_size_m * lng_per_m
 
-            coord_seed   = math.sin(lat * 1000) * math.cos(lng * 1000)
-            base_elev    = 230 + 30 * math.sin(row * 0.5) * math.cos(col * 0.4)
-            elevation    = base_elev + (coord_seed * 5)
+            topo = get_terrain_metrics(lat, lng)
+            if topo and "error" not in topo:
+                elevation = topo.get("elevation_m") or 250.0
+                slope = topo.get("slope_degrees") or 3.0
+            else:
+                # Fallback to pseudo-random if outside bounds
+                coord_seed   = math.sin(lat * 1000) * math.cos(lng * 1000)
+                elevation    = 230 + 30 * math.sin(row * 0.5) * math.cos(col * 0.4) + (coord_seed * 5)
+                slope        = 3.0
 
+            # Calculate risk using actual dynamic elevation models
+            # TODO: Consider calibrating these thresholds per region if needed, currently hardcoded for logic
             if elevation < 225:
                 risk        = "critical"
-                water_depth = 2.0 + (rainfall * 0.1) + abs(coord_seed)
+                water_depth = 2.0 + (rainfall * 0.1)
                 status      = "EVACUATE"
             elif elevation < 235:
                 risk        = "high"
-                water_depth = 1.0 + (rainfall * 0.05) + abs(coord_seed) * 0.5
+                water_depth = 1.0 + (rainfall * 0.05)
                 status      = "WARNING"
             elif elevation < 250:
                 risk        = "medium"
@@ -200,6 +208,7 @@ def _generate_grid(
                 "lat":          round(lat, 6),
                 "lng":          round(lng, 6),
                 "elevation":    round(elevation, 1),
+                "slope":        round(slope, 1),
                 "risk":         risk,
                 "water_depth_m": round(water_depth, 1),
                 "status":       status,
