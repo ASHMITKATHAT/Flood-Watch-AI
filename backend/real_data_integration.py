@@ -115,15 +115,7 @@ class DataIntegration:
                     current_rain = float(hourly_values[-1]) + float(bonus_rain)
                     cumulative_6h = float(sum(float(x) for x in hourly_values)) + (float(bonus_rain) * 3.0)
                     
-                    # ── Open-Meteo fallback if NASA returns 0mm ──
                     data_source = 'NASA_POWER'
-                    if current_rain <= 0:
-                        open_meteo_rain = await self._fetch_open_meteo_precipitation(lat, lon)
-                        if open_meteo_rain > 0:
-                            current_rain = float(open_meteo_rain)
-                            cumulative_6h = current_rain * 3.0  # estimate
-                            data_source = 'OpenMeteo_Fallback'
-                            logger.info(f"NASA returned 0mm — using Open-Meteo: {open_meteo_rain}mm")
                     
                     result = {
                         'latitude': float(lat),
@@ -143,12 +135,11 @@ class DataIntegration:
                     return result
                 else:
                     logger.error(f"NASA API error: {response.status}")
-                    # Try Open-Meteo before hard fallback
-                    return await self._get_fallback_rainfall_async(lat, lon)
+                    return self._get_fallback_rainfall(lat, lon)
                     
         except Exception as e:
             logger.error(f"Error fetching NASA data: {str(e)}")
-            return await self._get_fallback_rainfall_async(lat, lon)
+            return self._get_fallback_rainfall(lat, lon)
     
     def _process_nasa_rainfall(self, data: Dict) -> Dict[str, Any]:
         """Process raw NASA rainfall data"""
@@ -515,70 +506,20 @@ class DataIntegration:
                 'runoff_potential': 0
             }
     
-    async def _fetch_open_meteo_precipitation(self, lat: float, lon: float) -> float:
-        """Fetch current precipitation from Open-Meteo (free, no API key required)."""
-        url = (
-            f"https://api.open-meteo.com/v1/forecast"
-            f"?latitude={lat}&longitude={lon}&current=precipitation"
-        )
-        try:
-            if self.session:
-                @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=4), reraise=True)
-                async def _fetch():
-                    async with self.session.get(url, timeout=aiohttp.ClientTimeout(total=5)) as resp:
-                        if resp.status != 200:
-                            raise Exception(f"Open-Meteo bad status: {resp.status}")
-                        return await resp.json()
-                        
-                data = await _fetch()
-                precip = float(data.get('current', {}).get('precipitation', 0))
-                logger.info(f"Open-Meteo precipitation: {precip}mm for ({lat},{lon})")
-                return precip
-        except Exception as e:
-            logger.warning(f"Open-Meteo fallback failed: {e}")
-        return 0.0
-
-    @staticmethod
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=4), reraise=True)
-    def fetch_open_meteo_precipitation(lat: float, lon: float) -> Optional[float]:
-        """Strict synchronous HTTP GET to Open-Meteo.
-        Returns precipitation in mm on success, None on any failure."""
-        try:
-            resp = requests.get(
-                "https://api.open-meteo.com/v1/forecast",
-                params={"latitude": lat, "longitude": lon, "current": "precipitation"},
-                timeout=5,
-            )
-            resp.raise_for_status()
-            precip = resp.json().get("current", {}).get("precipitation")
-            if precip is not None:
-                return float(precip)
-            return None
-        except requests.exceptions.Timeout as e:
-            logger.warning(f"Open-Meteo sync GET timed out: {e}")
-            raise OpenWeatherTimeoutError(f"Open-Meteo sync timeout: {e}")
-        except Exception as e:
-            logger.warning(f"Open-Meteo sync GET failed: {e}")
-            # Reraise so tenacity can catch and retry
-            raise e
-
-    async def _get_fallback_rainfall_async(self, lat: float, lon: float) -> Dict[str, Any]:
-        """Get fallback rainfall data, trying Open-Meteo first."""
-        open_meteo_rain = await self._fetch_open_meteo_precipitation(lat, lon)
-        source = 'OpenMeteo_Fallback' if open_meteo_rain > 0 else 'fallback'
+    def _get_fallback_rainfall(self, lat: float, lon: float) -> Dict[str, Any]:
+        """Get fallback rainfall data when NASA API fails."""
+        logger.warning(f"Using static fallback rainfall data for ({lat}, {lon})")
         return {
             'latitude': lat,
             'longitude': lon,
-            'rainfall_mm': round(float(open_meteo_rain), 1),
-            'hourly_rainfall': [round(float(open_meteo_rain), 1)] + [0.0] * 5,
-            'cumulative_6h': round(float(open_meteo_rain * 3.0), 1),
-            'data_source': source,
+            'rainfall_mm': 0.0,
+            'hourly_rainfall': [0.0] * 6,
+            'cumulative_6h': 0.0,
+            'data_source': 'fallback',
             'timestamp': datetime.now().isoformat()
         }
 
-    def _get_fallback_rainfall(self, lat: float, lon: float) -> Dict[str, Any]:
-        """Get static fallback rainfall data (synchronous, last resort)."""
-        raise APIConnectionError("Failed to fetch rainfall data from NASA GPM and Open-Meteo. No fallback available.")
+
     
     def _get_fallback_weather(self, lat: float, lon: float) -> Dict[str, Any]:
         """Get fallback weather data"""

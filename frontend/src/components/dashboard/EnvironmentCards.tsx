@@ -1,5 +1,4 @@
-import React from 'react';
-import { Thermometer, Wind, Droplets, Eye } from 'lucide-react';
+import { Thermometer, Droplets } from 'lucide-react';
 
 interface EnvMetric {
     label: string;
@@ -12,29 +11,26 @@ interface EnvMetric {
 
 interface EnvironmentCardsProps {
     temperature?: number;
-    windSpeed?: number;
     humidity?: number;
-    visibility?: number;
+    soilSaturation?: number;
 }
 
 const EnvironmentCards: React.FC<EnvironmentCardsProps> = ({
     temperature,
-    windSpeed,
     humidity,
-    visibility,
+    soilSaturation,
 }) => {
     const fmt = (val: number | undefined, decimals = 1): string =>
         val != null ? val.toFixed(decimals) : '--';
 
     const metrics: EnvMetric[] = [
         { label: 'Temperature', value: fmt(temperature), unit: '\u00B0C', icon: Thermometer, color: '#ff9e64', trend: temperature != null ? `${temperature > 27 ? 'Warm' : 'Cool'}` : undefined },
-        { label: 'Wind Speed', value: fmt(windSpeed), unit: 'km/h', icon: Wind, color: '#7dcfff', trend: windSpeed != null ? `${windSpeed > 30 ? 'Gusty' : 'Calm'}` : undefined },
         { label: 'Humidity', value: humidity != null ? humidity.toString() : '--', unit: '%', icon: Droplets, color: '#bb9af7', trend: humidity != null ? `${humidity > 70 ? 'High' : 'Normal'}` : undefined },
-        { label: 'Visibility', value: fmt(visibility), unit: 'km', icon: Eye, color: '#9ece6a', trend: visibility != null ? `${visibility < 3 ? 'Poor' : 'Good'}` : undefined },
+        { label: 'Soil Saturation', value: fmt(soilSaturation), unit: '%', icon: Droplets, color: '#9ece6a', trend: soilSaturation != null ? `${soilSaturation > 75 ? 'Saturated' : 'Stable'}` : undefined },
     ];
 
     return (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {metrics.map(metric => {
                 const Icon = metric.icon;
                 return (

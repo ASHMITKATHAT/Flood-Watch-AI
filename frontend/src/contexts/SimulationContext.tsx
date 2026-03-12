@@ -22,6 +22,7 @@ export interface PredictPayload {
         flow_accumulation: number;
         rainfall_mm: number;
         sar_flooded_hectares: number;
+        soil_saturation_percent: number;
     };
     data_sources: {
         topography: string;

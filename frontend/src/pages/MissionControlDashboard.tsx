@@ -20,7 +20,6 @@ const MissionControlDashboard: React.FC = () => {
     const { user, activeDistrict } = useAuth();
     const {
         mode,
-        locationName,
         coordinates,
         dashboardData,
         predictData,
@@ -139,9 +138,8 @@ const MissionControlDashboard: React.FC = () => {
                         <RainfallCard currentRate={predictData?.inputs?.rainfall_mm ?? dashboardData?.rainfall ?? null} />
                         <EnvironmentCards
                             temperature={dashboardData?.temperature}
-                            windSpeed={dashboardData?.windSpeed}
                             humidity={dashboardData?.humidity}
-                            visibility={dashboardData?.visibility}
+                            soilSaturation={predictData?.inputs?.soil_saturation_percent}
                         />
                         <ActiveAlertsCard />
                         <TerrainCard topographyData={topographyData} />
