@@ -7,7 +7,7 @@
  * NO external API calls. 100% offline, sub-millisecond response.
  */
 
-const TERRAIN_API = 'http://127.0.0.1:5000/api/terrain';
+const TERRAIN_API = '/api/terrain';
 
 export interface TopographyResult {
     /** Elevation of the target point in meters above sea level */

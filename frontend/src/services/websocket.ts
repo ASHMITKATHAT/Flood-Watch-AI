@@ -12,7 +12,7 @@ class WebSocketService {
   private listeners: Map<string, Function[]> = new Map();
 
   connect() {
-    this.socket = new WebSocket('ws://localhost:5000/ws');
+    this.socket = new WebSocket(`ws://${window.location.host}/ws`);
 
     this.socket.onopen = () => {
       console.log('WebSocket connected');

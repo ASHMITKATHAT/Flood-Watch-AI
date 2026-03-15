@@ -15,7 +15,7 @@ const TelemetryTerminal: React.FC = () => {
     useEffect(() => {
         const fetchLogs = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/api/telemetry?count=3');
+                const response = await fetch('/api/telemetry?count=3');
                 if (response.ok) {
                     const data = await response.json();
                     if (data.success && data.logs) {

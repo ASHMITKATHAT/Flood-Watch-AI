@@ -207,7 +207,7 @@ const CinematicGlobe: React.FC = () => {
 
             {/* Grid coordinates HUD */}
             {hasSearched && (
-                <div className="absolute top-3 left-3 z-20 px-3 py-1.5 bg-[#1a1b26]/90 backdrop-blur-md rounded-lg border border-[#292e42] shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+                <div className="absolute top-3 left-3 z-20 px-3 py-1.5 bg-[#1a1b26]/90 backdrop-blur-md rounded-lg border border-[#292e42] shadow-[0_4px_12px_rgba(0,0,0,0.4)]" style={{marginTop:"69px",marginLeft:"40px"}}>
                     <span className="text-[10px] font-mono text-[#7dcfff]/80">
                         {coordinates.lat.toFixed(4)}°N, {coordinates.lng.toFixed(4)}°E
                     </span>

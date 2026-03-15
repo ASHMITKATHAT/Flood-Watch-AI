@@ -76,12 +76,31 @@ try:
         key_file=str(GEE_KEY_PATH),
     )
     import socket
+    import threading
     socket.setdefaulttimeout(10)
     
     try:
-        print("[SAR-DEBUG] Attempting credentials initialization...")
-        # Opt for a specific EE endpoint URL to bypass potential DNS/routing issues
-        ee.Initialize(credentials, opt_url="https://earthengine-highvolume.googleapis.com")
+        print("[SAR-DEBUG] Attempting credentials initialization (15s timeout)...")
+        _init_error = [None]
+        _init_done = threading.Event()
+
+        def _do_init():
+            try:
+                ee.Initialize(credentials, opt_url="https://earthengine-highvolume.googleapis.com")
+            except Exception as ex:
+                _init_error[0] = ex
+            finally:
+                _init_done.set()
+
+        _t = threading.Thread(target=_do_init, daemon=True)
+        _t.start()
+
+        if not _init_done.wait(timeout=15):
+            raise TimeoutError("GEE initialization timed out after 15 seconds")
+
+        if _init_error[0]:
+            raise _init_error[0]
+
         _gee_ready = True
         print(f"[SAR-DEBUG] ✅ GEE initialised successfully!")
         logger.info("✅ GEE initialised — SA: %s", _sa_email)

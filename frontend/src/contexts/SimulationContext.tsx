@@ -137,6 +137,13 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
         }
     }, [fetchPredictData]);
 
+    // Auto-fetch data on initial load to populate the dashboard immediately
+    React.useEffect(() => {
+        if (!hasSearched) {
+            fetchLiveData(coordinates.lat, coordinates.lng);
+        }
+    }, []);
+
     const value = useMemo(() => ({
         mode,
         setMode,

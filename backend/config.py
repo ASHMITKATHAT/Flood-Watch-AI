@@ -18,7 +18,6 @@ class Config:
     DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
     
     # API Keys (from your input)
-    OPENWEATHER_API_KEY = os.getenv('OPENWEATHER_API_KEY', '')
     ISRO_LULC_API_KEY = os.getenv('ISRO_LULC_API_KEY', '')
     NASA_API_KEY = os.getenv('NASA_API_KEY', '')
     
@@ -50,7 +49,6 @@ class Config:
     # API Endpoints
     NASA_GPM_API = "https://gpm1.gesdisc.eosdis.nasa.gov/opendap/hyrax/GPM_L3/GPM_3IMERGHH.06/{date}/{file}"
     ISRO_BHUVAN_WMS = "https://bhuvan-ras1.nrsc.gov.in/bhuvan/wms"
-    OPENWEATHER_API = "https://api.openweathermap.org/data/2.5/weather"
     
     # Model Parameters
     CELL_SIZE = 30  # meters (ISRO DEM resolution)
@@ -69,7 +67,6 @@ class Config:
     # Caching
     CACHE_TIMEOUT = {
         'nasa': 1800,  # 30 minutes
-        'weather': 600,  # 10 minutes
         'terrain': 86400,  # 24 hours
     }
     

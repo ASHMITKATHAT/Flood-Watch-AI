@@ -317,21 +317,26 @@ def predict_flood():
                 weather_source = "NASA_GPM_Satellite"
             except Exception as e:
                 logger.warning(f"[/api/predict] Real Data error: {e}")
-            sar_flooded = 0.0
             sar_source  = "unavailable"
+            sar_data    = {}
             try:
                 sar         = get_inundation_metrics(lat, lng, radius_km=5)
                 sar_flooded = float(sar.get("flooded_area_hectares", 0) or 0)
+                sar_data    = sar
                 sar_source  = "Sentinel1_GEE"
             except Exception as e:
                 logger.warning(f"[/api/predict] SAR error: {e}")
 
             # 4. ML Inference
             features = {
-                "rainfall_mm":      rainfall_mm,
-                "slope_degrees":    slope,
-                "flow_accumulation": flow_acc,
-                "elevation_m":      elevation,
+                "rainfall_mm":             rainfall_mm,
+                "slope_deg":               slope,  # Key matches physics_engine
+                "flow_accumulation":       flow_acc,
+                "elevation_m":             elevation,
+                "soil_saturation":         soil_saturation_percent,
+                "temperature_c":           float(live_data.get("data_sources", {}).get("openweather", {}).get("data", {}).get("temperature_c", 25.0)),
+                "humidity_percent":        float(live_data.get("data_sources", {}).get("openweather", {}).get("data", {}).get("humidity_percent", 50.0)),
+                "sar_flooded_hectares":    sar_flooded,
             }
             result   = flood_engine.predict(features)
             risk_pct = min(100.0, result.risk_score * 100)
@@ -349,6 +354,8 @@ def predict_flood():
                     "rainfall_mm":          round(rainfall_mm, 1),
                     "sar_flooded_hectares": round(sar_flooded, 1),
                     "soil_saturation_percent": soil_saturation_percent,
+                    "temperature_c":        round(features["temperature_c"], 1),
+                    "humidity_percent":     round(features["humidity_percent"], 1),
                 },
                 "data_sources": {
                     "topography": topo_source,
@@ -389,7 +396,7 @@ def predict_flood():
 
         features = {
             "rainfall_mm":       rainfall_mm,
-            "slope_degrees":     slope_degrees,
+            "slope_deg":         slope_degrees, # Corrected key
             "flow_accumulation": flow_acc,
             "elevation_m":       elevation_m,
         }
@@ -446,7 +453,7 @@ def predict_batch():
             try:
                 features = {
                     "rainfall_mm":       float(village.get("rainfall_mm", 0)),
-                    "slope_degrees":     float(village.get("slope_degrees", 5)),
+                    "slope_deg":         float(village.get("slope_degrees", 5)), # Corrected key
                     "flow_accumulation": float(village.get("flow_accumulation", 1000)),
                     "elevation_m":       float(village.get("elevation", 250)),
                 }

@@ -100,8 +100,9 @@ class TopographyEngine:
         # Read the native CRS of the raster
         native_crs = dem_ds.crs
         
-        # Build the transformer from WGS84 to the native CRS
-        transformer = pyproj.Transformer.from_crs("EPSG:4326", native_crs, always_xy=True)
+        # Rigorous PyProj transformation: WGS84 explicitly defined
+        wgs84_crs = pyproj.CRS("EPSG:4326")
+        transformer = pyproj.Transformer.from_crs(wgs84_crs, native_crs, always_xy=True)
         
         # Transform the raw (lng, lat) to target (x, y)
         target_x, target_y = transformer.transform(raw_x, raw_y)

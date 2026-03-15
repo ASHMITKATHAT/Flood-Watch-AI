@@ -180,17 +180,16 @@ class AdvancedFloodML:
             self._load_saved_models()
             logger.info("ML models loaded from storage")
         except Exception as e:
-            logger.warning(f"Could not load models: {e}. Training new models...")
-            self.train_models()
+            logger.warning(f"Could not load models: {e}. Models must be trained manually using a structured dataset.")
 
-    def train_models(self, retrain: bool = False):
+    def train_models(self, training_data: pd.DataFrame = None, retrain: bool = False):
         required = {"rf", "xgb", "lgb"}
         if not retrain and required.issubset(self.models):
             logger.info("Models already trained. Use retrain=True to force retraining.")
             return
 
-        logger.info("Starting model training pipeline...")
-        X_train, X_test, y_train, y_test = self._prepare_training_data()
+        logger.info("Starting model training pipeline with explicit dataset...")
+        X_train, X_test, y_train, y_test = self._prepare_training_data(training_data)
 
         logger.info("Training Random Forest...")
         self.models["rf"] = self._train_random_forest(X_train, y_train)
@@ -215,12 +214,16 @@ class AdvancedFloodML:
 
     # ── DATA PREPARATION ──────────────────────────────────────────────────────
 
-    def _prepare_training_data(self) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-        synthetic_data = self._generate_synthetic_data(n_samples=5000)
+    def _prepare_training_data(self, training_data: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        if training_data is None or training_data.empty:
+            raise ValueError(
+                "Training data is required. Synthetic generation has been permanently disabled "
+                "for production. Please run scripts/train_model_real_data.py to aggregate real ISRO DEM inputs."
+            )
 
-        X          = synthetic_data.drop(["water_depth_mm", "flood_occurred"], axis=1)
-        y_depth    = synthetic_data["water_depth_mm"]
-        y_occurred = synthetic_data["flood_occurred"]
+        X          = training_data.drop(["water_depth_mm", "flood_occurred"], axis=1)
+        y_depth    = training_data["water_depth_mm"]
+        y_occurred = training_data["flood_occurred"]
 
         X_train, X_test, y_train, y_test = train_test_split(
             X, y_depth, test_size=0.2, random_state=42, stratify=y_occurred
@@ -231,73 +234,6 @@ class AdvancedFloodML:
         self.feature_names = X.columns.tolist()
 
         return X_train_scaled, X_test_scaled, y_train.values, y_test.values
-
-    def _generate_synthetic_data(self, n_samples: int = 10000) -> pd.DataFrame:
-        # Guard: never generate fake data in production
-        env = os.environ.get("FLASK_ENV", "") or os.environ.get("APP_ENV", "")
-        if env.lower() in ("production", "prod"):
-            raise RuntimeError(
-                "Synthetic data generation is prohibited in production. "
-                "Provide a real training dataset."
-            )
-
-        logger.info(f"Generating {n_samples} synthetic training samples")
-        np.random.seed(42)
-
-        feature_ranges = {
-            "rainfall_mm":       (0,   150, "exponential"),
-            "rainfall_24h":      (0,   120, "exponential"),
-            "humidity_percent":  (20,   95, "normal"),
-            "temperature_c":     (15,   45, "normal"),
-            "wind_speed":        (0,    20, "exponential"),
-            "pressure_hpa":      (1000, 1020, "normal"),
-            "slope_deg":         (0,    30, "beta"),
-            "elevation_m":       (100, 1000, "normal"),
-            "curvature":         (-10,  10, "normal"),
-            "flow_accumulation": (100, 5000, "lognormal"),
-            "soil_saturation":   (10,  100, "beta"),
-            "ndvi":              (0,   0.8, "beta"),
-            "builtup_percentage": (0,   60, "beta"),
-            "water_distance_m":  (50, 5000, "lognormal"),
-            "soil_type_factor":  [0.3, 0.5, 0.7, 0.9, 1.0],
-            "drainage_density":  (0,    5, "beta"),
-        }
-
-        data: Dict[str, np.ndarray] = {}
-        for feature, params in feature_ranges.items():
-            if isinstance(params, list):
-                data[feature] = np.random.choice(params, n_samples)
-            else:
-                lo, hi, dist = params
-                if dist == "normal":
-                    mu  = (lo + hi) / 2
-                    sig = (hi - lo) / 6
-                    data[feature] = np.random.normal(mu, sig, n_samples)
-                elif dist == "exponential":
-                    data[feature] = np.random.exponential((hi - lo) / 3, n_samples) + lo
-                elif dist == "beta":
-                    data[feature] = np.random.beta(2, 2, n_samples) * (hi - lo) + lo
-                elif dist == "lognormal":
-                    data[feature] = np.random.lognormal(np.log((lo + hi) / 2), 0.5, n_samples)
-
-        df = pd.DataFrame(data)
-        df["water_depth_mm"] = np.clip(self._calculate_synthetic_water_depth(df), 0, 500)
-        df["flood_occurred"] = (df["water_depth_mm"] > 100).astype(int)
-        return df
-
-    def _calculate_synthetic_water_depth(self, df: pd.DataFrame) -> np.ndarray:
-        depth = (
-            df["rainfall_mm"]      * 0.5
-            + df["rainfall_24h"]   * 0.3
-            + df["soil_saturation"] * 0.2
-            + (1 - df["elevation_m"] / 1000) * 100
-            + df["flow_accumulation"] * 0.01
-            + np.random.exponential(20, len(df))
-        )
-        depth *= (1 + df["builtup_percentage"] / 200)
-        depth *= (1 - df["slope_deg"] / 100)
-        depth *= df["soil_type_factor"]
-        return depth
 
     # ── MODEL TRAINERS ────────────────────────────────────────────────────────
 
@@ -467,8 +403,12 @@ class AdvancedFloodML:
         return result
 
     def _prepare_feature_vector(self, features: Dict[str, float]) -> np.ndarray:
+        # Guarantee we always use the 16 core features the scaler expects
         if not self.feature_names:
-            self.feature_names = list(features.keys())
+            if "core_features" in self.feature_config:
+                self.feature_names = self.feature_config["core_features"]
+            else:
+                self.feature_names = list(features.keys())
 
         missing: List[str] = []
         vec = []

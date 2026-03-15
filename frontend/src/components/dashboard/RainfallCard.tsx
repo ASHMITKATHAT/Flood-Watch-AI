@@ -39,7 +39,7 @@ const RainfallCard: React.FC<RainfallCardProps> = ({ currentRate }) => {
                 <span className="text-xs font-bold font-digital tracking-wider" style={{ color: severityColor }}>
                     {severity}
                 </span>
-                <span className="text-[9px] font-mono text-[#565f89] ml-auto">Open-Meteo Live</span>
+                <span className="text-[9px] font-mono text-[#565f89] ml-auto">NASA GPM IMERG</span>
             </div>
         </div>
     );

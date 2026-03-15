@@ -7,8 +7,7 @@
  * Returns normalized data matching our DashboardData interface.
  */
 
-const OPENWEATHER_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY || 'your_openweather_api_key_here';
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
+const BASE_URL = '/api/predict';
 
 export interface WeatherResponse {
     rainfall: number;        // mm/hr (from rain.1h, or 0)
@@ -20,16 +19,6 @@ export interface WeatherResponse {
     windSpeed: number;       // km/h
     humidity: number;        // %
     visibility: number;      // km
-}
-
-/**
- * Compute risk level from real-time weather metrics
- */
-function computeRisk(rainfall: number, humidity: number): { level: WeatherResponse['riskLevel']; confidence: number } {
-    if (rainfall > 100) return { level: 'CRITICAL', confidence: 92 + Math.random() * 5 };
-    if (rainfall > 50) return { level: 'HIGH', confidence: 78 + Math.random() * 10 };
-    if (rainfall > 15 || humidity > 85) return { level: 'MODERATE', confidence: 65 + Math.random() * 15 };
-    return { level: 'SAFE', confidence: 55 + Math.random() * 20 };
 }
 
 /**
@@ -59,46 +48,51 @@ function estimateWaterDepth(rainfall: number): number {
  */
 export async function fetchLiveWeather(lat: number, lng: number): Promise<WeatherResponse | null> {
     try {
-        const url = `${BASE_URL}?lat=${lat}&lon=${lng}&appid=${OPENWEATHER_KEY}&units=metric`;
+        const url = `${BASE_URL}?lat=${lat}&lng=${lng}`;
 
         const response = await fetch(url);
         if (!response.ok) {
-            throw new Error(`OpenWeather HTTP ${response.status}`);
+            throw new Error(`Backend HTTP ${response.status}`);
         }
 
         const data = await response.json();
+        
+        if (data.status !== "success") {
+             throw new Error("Backend returned failure");
+        }
 
-        // Extract fields from OpenWeather response
-        const temperature = data.main?.temp ?? 0;
-        const humidity = data.main?.humidity ?? 0;
-        const windSpeedMs = data.wind?.speed ?? 0;
-        const windSpeed = +(windSpeedMs * 3.6).toFixed(1); // m/s → km/h
-        const visibilityM = data.visibility ?? 10000;
-        const visibility = +(visibilityM / 1000).toFixed(1); // m → km
-
-        // Rainfall: OpenWeather puts it in rain.1h or rain.3h (mm)
-        const rainfall1h = data.rain?.['1h'] ?? 0;
-        const rainfall3h = data.rain?.['3h'] ?? 0;
-        const rainfall = rainfall1h || (rainfall3h / 3); // normalize to mm/hr
-
-        // Derived metrics
-        const soilMoisture = estimateSoilMoisture(humidity, rainfall);
-        const waterDepth = estimateWaterDepth(rainfall);
-        const { level: riskLevel, confidence } = computeRisk(rainfall, humidity);
+        // Extract fields from backend response incorporating NASA GPM & SMAP
+        const rainfall = data.inputs?.rainfall_mm ?? 0;
+        const soilMoisture = data.inputs?.soil_saturation_percent ?? estimateSoilMoisture(50, rainfall);
+        const waterDepth = data.flood_depth_m ?? estimateWaterDepth(rainfall);
+        
+        const risk_category = data.risk_category?.toUpperCase() || 'SAFE';
+        let riskLevel: WeatherResponse['riskLevel'] = 'SAFE';
+        if (risk_category.includes('CRITICAL')) riskLevel = 'CRITICAL';
+        else if (risk_category.includes('HIGH')) riskLevel = 'HIGH';
+        else if (risk_category.includes('MODERATE') || risk_category.includes('MEDIUM')) riskLevel = 'MODERATE';
+        
+        const confidence = (data.confidence ?? 0.8) * 100;
+        
+        // Extract real weather data injected by backend (Open-Meteo disguised as OpenWeather)
+        // Ensure defaults are only used if the backend explicitly fails to provide keys
+        const weatherData = data.data_sources?.weather === 'unavailable' 
+            ? null 
+            : data.data_sources?.openweather?.data;
 
         return {
             rainfall: +rainfall.toFixed(1),
-            soilMoisture,
-            waterDepth,
+            soilMoisture: +soilMoisture.toFixed(1),
+            waterDepth: +waterDepth.toFixed(2),
             riskLevel,
             confidence: +confidence.toFixed(1),
-            temperature: +temperature.toFixed(1),
-            windSpeed,
-            humidity,
-            visibility,
+            temperature: weatherData?.temperature_c ?? data.inputs?.temperature_c ?? 28.5,
+            windSpeed: weatherData?.wind_speed ?? 12.0, 
+            humidity: weatherData?.humidity_percent ?? data.inputs?.humidity_percent ?? 50.0,
+            visibility: 10.0,
         };
     } catch (error) {
-        console.warn('[WeatherService] Failed to fetch live weather:', error);
+        console.warn('[WeatherService] Failed to fetch live weather from NASA/Backend:', error);
         return null;
     }
 }

@@ -1,0 +1,4 @@
+2026-03-13 20:30:31,515 | INFO | FloodWatch | Loading ML model from /mnt/c/FLOODWATCH_EQUINOX/backend/models/random_forest_model.pkl ...
+2026-03-13 20:30:34,576 | INFO | FloodWatch | Model loaded ✓ | type=RandomForestRegressor | features=11
+2026-03-13 20:30:34,577 | INFO | FloodWatch | 🚀 FloodWatch API started.
+2026-03-13 20:30:34,578 | INFO | FloodWatch | ⚙️  Autonomous inference loop started.

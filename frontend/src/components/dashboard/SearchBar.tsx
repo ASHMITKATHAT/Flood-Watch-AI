@@ -147,6 +147,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onLocationSelect }) => {
                     onKeyDown={handleKeyDown}
                     placeholder="Search any location... (e.g., Wayanad, Kerala)"
                     className="flex-1 bg-transparent text-[#c0caf5] text-sm font-medium py-3.5 px-3 outline-none placeholder-[#565f89]"
+                    style={{width:"491px"}}
                 />
                 {query && (
                     <button

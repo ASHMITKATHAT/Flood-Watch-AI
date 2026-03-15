@@ -235,6 +235,12 @@ body {
     animation: ripple-marker 1.5s ease-out infinite;
 }
 
+
+.live-class{
+    margin-right: 40px;
+    margin-top: -18px;
+}
+
 @keyframes ripple-marker {
     0% {
         transform: scale(1);

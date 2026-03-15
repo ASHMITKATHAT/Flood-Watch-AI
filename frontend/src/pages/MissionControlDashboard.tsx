@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useSimulation } from '../contexts/SimulationContext';
 import { Loader2, Lock, ChevronRight, ChevronLeft } from 'lucide-react';
-import { DISTRICT_MAP, getDistrictLabel } from '../utils/districts';
+import { getDistrictLabel } from '../utils/districts';
 import CinematicGlobe from '../components/map/CinematicGlobe';
 import RainfallCard from '../components/dashboard/RainfallCard';
 import ActiveAlertsCard from '../components/dashboard/ActiveAlertsCard';
@@ -25,24 +25,19 @@ const MissionControlDashboard: React.FC = () => {
         predictData,
         isLoadingWeather,
         topographyData,
-        setCoordinates,
-        setLocationName,
-        fetchLiveData,
+        hasSearched,
     } = useSimulation();
 
     const [isRightPanelOpen, setIsRightPanelOpen] = useState(false);
     const isSuperAdmin = user?.adminRole === 'super_admin';
 
-    // Auto-fetch weather data when activeDistrict changes
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Disable auto-fetch on mount to prevent "random data" showing before user search
     useEffect(() => {
-        const districtInfo = DISTRICT_MAP[activeDistrict];
-        if (districtInfo) {
-            setCoordinates({ lat: districtInfo.center.lat, lng: districtInfo.center.lng, zoom: districtInfo.zoom });
-            setLocationName(districtInfo.label);
-            fetchLiveData(districtInfo.center.lat, districtInfo.center.lng);
+        // Only auto-open the panel if a search has been performed
+        if (hasSearched) {
+            setIsRightPanelOpen(true);
         }
-    }, [activeDistrict]);
+    }, [hasSearched]);
 
 
     return (
@@ -87,7 +82,7 @@ const MissionControlDashboard: React.FC = () => {
                     </div>
 
                     {/* Right Zone: Status Badges (Trimmed) */}
-                    <div className="flex items-center gap-x-4 flex-shrink-0 pointer-events-auto">
+                    <div className="flex items-center gap-x-4 flex-shrink-0 pointer-events-auto live-class">
                         {isLoadingWeather && (
                             <div className="flex items-center px-3 py-1 bg-[#7aa2f7]/10 border border-[#7aa2f7]/20 rounded-full animate-pulse flex-shrink-0 backdrop-blur-md">
                                 <Loader2 className="w-3 h-3 text-[#7aa2f7] mr-2 animate-spin flex-shrink-0" />
@@ -100,8 +95,8 @@ const MissionControlDashboard: React.FC = () => {
                                 <span className="text-[10px] font-bold text-[#f7768e] tracking-wider whitespace-nowrap">SIMULATION</span>
                             </div>
                         ) : (
-                            <div className="flex items-center px-3 py-1 bg-[#f7768e]/10 border border-[#f7768e]/20 rounded-full flex-shrink-0 backdrop-blur-md">
-                                <div className="w-2 h-2 bg-[#f7768e] rounded-full mr-2 animate-pulse shadow-[0_0_8px_rgba(247,118,142,0.5)] flex-shrink-0" />
+                            <div className="flex items-center px-3 py-1 bg-[#f7768e]/10 border border-[#f7768e]/20 rounded-full flex-shrink-0 backdrop-blur-md ">
+                                <div className="w-2 h-2 bg-[#f7768e] rounded-full mr-14 animate-pulse shadow-[0_0_8px_rgba(247,118,142,0.5)] flex-shrink-0" />
                                 <span className="text-[10px] font-bold text-[#f7768e] tracking-wider whitespace-nowrap">LIVE</span>
                             </div>
                         )}
@@ -135,23 +130,25 @@ const MissionControlDashboard: React.FC = () => {
                         className={`absolute right-0 top-0 h-full w-96 bg-slate-900/95 backdrop-blur-md border-l border-[#414868] shadow-2xl z-50 flex flex-col gap-4 overflow-y-auto custom-scrollbar p-4 pointer-events-auto
                         transform ${isRightPanelOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}
                     >
-                        <RainfallCard currentRate={predictData?.inputs?.rainfall_mm ?? dashboardData?.rainfall ?? null} />
-                        <EnvironmentCards
-                            temperature={dashboardData?.temperature}
-                            humidity={dashboardData?.humidity}
-                            soilSaturation={predictData?.inputs?.soil_saturation_percent}
-                        />
-                        <ActiveAlertsCard />
-                        <TerrainCard topographyData={topographyData} />
-                        <SARTelemetryPanel
-                            lat={coordinates.lat}
-                            lng={coordinates.lng}
-                        />
-                        <MLPredictionCard
-                            data={predictData}
-                            isLoading={isLoadingWeather}
-                        />
-                        <DataProvenanceCard />
+                            <>
+                                <RainfallCard currentRate={predictData?.inputs?.rainfall_mm ?? dashboardData?.rainfall ?? null} />
+                                <EnvironmentCards
+                                    temperature={dashboardData?.temperature}
+                                    humidity={dashboardData?.humidity}
+                                    soilSaturation={predictData?.inputs?.soil_saturation_percent}
+                                />
+                                <ActiveAlertsCard />
+                                <TerrainCard topographyData={topographyData} />
+                                <SARTelemetryPanel
+                                    lat={coordinates.lat}
+                                    lng={coordinates.lng}
+                                />
+                                <MLPredictionCard
+                                    data={predictData}
+                                    isLoading={isLoadingWeather}
+                                />
+                                <DataProvenanceCard />
+                            </>
                     </div>
                 </div>
             </div>
